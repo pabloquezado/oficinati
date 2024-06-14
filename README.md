@@ -63,7 +63,7 @@ Esse projeto justifica-se pela importância da formação tecnológica dos joven
 
 <br>
 
-- Tabela 1. Equipamentos utilizados para acessar a Internet (IBGE 2021)
+- Tabela 1. Equipamentos utilizados para acessar a Internet (IBGE 2021)[^1]
 
 | ESTUDANTES |  (%)  | NÃO ESTUDANTES | (%)  |
 |----        |------ |----------------|---   |
@@ -74,7 +74,7 @@ Esse projeto justifica-se pela importância da formação tecnológica dos joven
 
 <br>
 
-Ademais, por se tratar de um dispositivo de fácil manipulação, acabou sendo uma escolha excelente. O fato de trabalharmos com um aparato tecnológico - familiar e já está presente no cotidiano das crianças - possibilita futuros promissores para estes jovens, permitindo que usufruem de uma formação básica tecnológica e abrindo caminhos para a carreira de programação.[^1]
+Ademais, por se tratar de um dispositivo de fácil manipulação, acabou sendo uma escolha excelente. O fato de trabalharmos com um aparato tecnológico - familiar e já está presente no cotidiano das crianças - possibilita futuros promissores para estes jovens, permitindo que usufruem de uma formação básica tecnológica e abrindo caminhos para a carreira de programação.
 
 # Créditos
 Seguindo todas as diretrizes autorais para as marcas Sega e Capcom, que libera o uso de sua imagem para fins educativos.
