@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Kidd</title>
+</head>
+
+<!--
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/script.js" defer></script>
+-->
+
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+@media screen and (orientation: portrait) {
+      html {
+        /* Rotate the content container */
+        
+      }
+    }
+.game{
+width: 100%;
+height: 600px;
+border: 1px solid #333;
+margin: 0 auto;
+position: relative;
+overflow: hidden;
+background: blue;
+}
+/*Percebi que a estrada do Alex Kidd, em telas pequenas, fica melhor
+com um recuo margin-bottom de 30 pixels :) 
+então adicionei essa condição para adaptar a estradinha
+em dispositivos Mobile. (Testado em celulares e Tablets)*
+
+ATUALIZAÇÃO: Não precisa fazer gambiarra com margin-bottom! Só de colocar
+a pista no html, através do css, encaixa perfeitamente em qualquer tamanho de tela/dispositivo
+sem precisar usar media queries! Para entender melhor, basta dar um CTRL + F aqui mesmo
+e procurar por html{ no style, observe que eu coloquei a estrada (assets/road.png) usando o método
+url dentro do background-image. A mesma técnica com content: url('link') foi testada também,
+mas nesse caso aqui não funcionou.*/
+@media only screen and (max-width: 600px){
+/*Esvaziado. Leia atualização.*/
+}
+@media (min-width: 1200px){
+    .batton{
+        visibility: hidden;
+    }
+    .obs{
+    right: -80px;
+    animation: obs-animation 1000ms infinite linear;
+    }
+    .pontos{
+        text-align: center;
+    }
+    #pontofinal{
+        text-align: center;
+    }
+    .replay{
+        margin: auto;
+        cursor: pointer;
+        left: 500px;
+        right: 50%;
+        bottom: 200px;
+    }
+    .vai{
+    animation: vai 100ms ease-out;
+    }
+    .segredo{
+        text-align: center;
+    }
+    #final{
+        position: fixed;
+        margin: auto;
+        right: calc(50% - 8%);
+        bottom: 45vh;
+        cursor: pointer;
+    }
+    .jnk{
+left: 140px;
+    }
+    .jnk2{
+left: 120px;
+    }
+    .instru{
+    margin: auto;
+    right: calc(50% - 15%);
+    }
+    body{
+        user-select: none;
+    }
+}
+@keyframes vai{
+    0%{
+left: 10px;
+    }
+    20%{
+left: 50px;
+    }
+    50%{
+left: 50px;
+    }
+    70%{
+left: 70px;
+    }
+    80%{
+left: 100px;
+    }
+    90%{
+left: 200px;
+    }
+    100%{
+left: 100%;
+    }
+}
+
+.obs {
+image-rendering: pixelated;
+position: absolute;
+bottom: 0;
+width: 50px;
+/* é onde o obstáculo encosta no Alex left: 75px;*/
+}
+@media only screen and (max-width: 600px){
+    .obs{
+        animation: obs-animation 800ms infinite linear;
+    }
+}
+/*Percebi uma certa incompatibilidade entre a velocidade da 
+animação do obstáculo (obs-animation) no mobile para o desktop. 
+1s, em dispositivos menores, fica lento demais e atrapalha o pulo,
+juntamente com o tempo do Alex retornar ao chão, não garantindo
+uma jogabilidade mínima. Por isso, alterei a velocidade para 800ms
+em dispositivos Mobile, tornando a jogabilidade muito melhor em Tablets.
+*/
+
+.alex{
+    image-rendering: pixelated;
+    width: 75px;
+
+    position: absolute;
+    /* Se eu aumentar o bottom, a imagem do Alex vai subir,
+    então nossa animação de pulo vai seguir essa lógica.
+    Do bottom: 0px; para 180px; */
+    bottom: 0;
+    z-index: 5;
+}
+.pulo{
+    animation: pulo 600ms ease-out;
+}
+.vai{
+    animation: vai 600ms ease-out;
+}
+.andando{
+    animation: andar 2000ms ease-out;
+}
+.andando2{
+    animation: andar2 2000ms ease-out;
+}
+
+@keyframes andar{
+    0%{
+        left: 10px;
+    }
+    100%{
+        left: 150px;
+    }
+}
+
+@keyframes andar2{
+    0%{
+        left: 150px;
+    }
+    100%{
+        left: 300px;
+    }
+}
+
+@keyframes vai{
+    0%{
+left: 10px;
+    }
+    20%{
+left: 50px;
+    }
+    50%{
+left: 50px;
+    }
+    70%{
+left: 70px;
+    }
+    80%{
+left: 100px;
+    }
+    90%{
+left: 200px;
+    }
+    100%{
+left: 500px;
+    }
+}
+@keyframes obs-animation {
+from {
+
+/* Se eu começar com right: 0 o obstáculo aparece do nada, no
+meio da tela. Para melhorar isso, atribuímos um valor negativo
+ao right, para que a bolinha possa aparecer fora da tela -
+e se mover até o final de forma mais natural */
+
+right: -80px;
+}
+
+to {
+right: 100%;
+}
+}
+
+@keyframes pulo {
+
+0% {
+bottom: 0;
+}
+
+40% {
+bottom: 180px;
+}
+
+50% {
+bottom: 180px;
+}
+
+60%{
+bottom: 180px;
+}
+
+65%{
+bottom: 100px;
+}
+
+70%{
+bottom: 50px;
+}
+
+80%{
+bottom: 30px;
+}
+
+90%{
+bottom: 10px;
+}
+
+100% {
+bottom: 0;
+}
+}
+.batton{
+    position: fixed;
+    width: 50px;
+    image-rendering: pixelated;
+    bottom: 0;
+    left: 200px;
+}
+.cash{
+    position: fixed;
+    width: 50px;
+    image-rendering: pixelated;
+}
+p{
+    color: white;
+    font-size: 50px;
+    margin-left: 80px;
+}
+.power{
+    position: fixed;
+    width: 50px;
+    image-rendering: pixelated;
+}
+.hab{
+    position: fixed;
+    width: 50px;
+    image-rendering: pixelated;
+    bottom: 0;
+    left: 290px;
+    visibility: hidden;
+}
+
+</style>
+
+<body>
+
+<div class="ending">
+  
+<div class="game">
+
+    <!--Reparem que ao atribuir "pulo" ao alex, ativamos
+    a animação de pulo que definimos no CSS, ou seja,
+fica class="alex pulo" ao pressionarmos a tecla, e após
+o timeOut retorna a ser apenas class="alex" -->
+    <img src="assets/alex1.png" class="alex">
+    <img src="assets/obs.png" class="obs">
+
+    <img src="assets/bg.png" class="bg" id="bg1">
+    <img src="assets/bg.png" class="bg" id="bg2">
+
+    <img src="assets/bg.png" class="bg2" id="bg3">
+    <img src="assets/bg.png" class="bg3" id="bg4">
+
+    <img src="assets/button.png" class="batton" id="botao">
+
+    <img src="assets/cash.png" class="cash">
+    <p class="pontuação" id="score">0</p>
+    <img src="assets/power.png" class="power" id="buy">
+    <p id="preço">20</p>
+
+    <p class="pontos" id="over">Fim de jogo! Sua pontuação foi:</p>
+    <p class="total" id="pontofinal">0</p>
+
+    <p class="segredo" id="over2">Parabéns! Você descobriu o final secreto!<br><br>Pressione o botão para continuar</p>
+    <img src="assets/gooseka.png" class="gooseka">
+    <img src="assets/dialog.png" class="dialog" id="dialg">
+    <img src="assets/dialog2.png" class="dialog2" id="dialg2">
+    <img src="assets/dialog3.png" class="dialog3" id="dialg3">
+
+    <img src="assets/dialog4.png" class="dialog4" id="dialg4">
+    <img src="assets/dialog5.png" class="dialog5" id="dialg5">
+
+    <img src="assets/dialog6.png" class="dialog6" id="dialg6">
+
+    <img src="assets/dialog7.png" class="dialog7" id="dialg7">
+    <img src="assets/dialog8.png" class="dialog8" id="dialg8">
+
+    <img src="assets/instruções.png" class="instru" id="instruc">
+
+    <img src="assets/balao1.png" class="balao" id="ballon">
+    <img src="assets/balao2.png" class="balao2" id="ballon2">
+    <img src="assets/balao3.png" class="balao3" id="ballon3">
+
+    <img src="assets/janken1.png" class="jnk" id="jk1">
+    <img src="assets/janken2.png" class="jnk" id="jk2">
+
+    <img src="assets/janken1.png" class="jnk2" id="jk3">
+    <img src="assets/janken2.png" class="jnk2" id="jk4">
+
+    <img src="assets/reassets/play.png" class="replay" id="reset">
+    
+    <img src="assets/play.png" class="play" id="final">
+
+    <img src="assets/habilidade.png" class="hab" id="manopla">
+    <img src="assets/barrinha.png" class="uiP" id="uiPower">
+
+    <img src="assets/barrinha1.png" class="uiP">
+    <img src="assets/barrinha2.png" class="uiP">
+    <img src="assets/barrinha3.png" class="uiP">
+    <img src="assets/barrinha4.png" class="uiP">
+    <img src="assets/barrinha5.png" class="uiP">
+
+<style>
+ #over{
+    margin-left: 85px;
+    margin-top: 90px;
+    font-size: 30px;
+ }   
+ .pontos{
+    visibility: hidden;
+ }
+ .total{
+    visibility: hidden;
+ }
+ .replay{
+    position: absolute;
+    width: 150px;
+    image-rendering: pixelated;
+    margin-left: 100px;
+    margin-top: -90px;
+    visibility: hidden;
+    z-index: 5;
+ }
+ .segredo{
+    visibility: hidden;
+ }
+ #over2{
+    margin-left: 75px;
+    margin-top: -100px;
+    font-size: 30px;
+ }
+ .play{
+    width: 150px;
+    image-rendering: pixelated;
+    margin-left: 100px;
+    margin-top: 40px;
+    visibility: hidden;
+ }
+ .uiP{
+    position: fixed;
+    top: 80px;
+    left: 70px;
+    width: 100px;
+    image-rendering: pixelated;
+    visibility: hidden;
+ }
+ .gooseka{
+    position: absolute;
+    width: 50px;
+    bottom: 0;
+    image-rendering: pixelated;
+    right: 50px;
+    visibility: hidden;
+ }
+ .dialog{
+    position: fixed;
+    top: 200px;
+    width: 300px;
+    image-rendering: pixelated;
+    visibility: hidden;
+ }
+ .dialog2{
+    position: fixed;
+    top: 200px;
+    width: 400px;
+    image-rendering: pixelated;
+    image-rendering: pixelated;
+    visibility: hidden;
+ }
+ .dialog3{
+    position: fixed;
+    top: 200px;
+    width: 300px;
+    image-rendering: pixelated;
+    visibility: hidden;
+ }
+ .dialog4{
+    position: fixed;
+    top: 150px;
+    width: 300px;
+    image-rendering: pixelated;
+    visibility: hidden;
+    z-index: 3;
+ }
+ .dialog5{
+    position: fixed;
+    top: 150px;
+    width: 400px;
+    image-rendering: pixelated;
+    z-index: 3;
+    visibility: hidden;
+ }
+ .dialog6{
+    position: fixed;
+    top: 150px;
+    width: 400px;
+    image-rendering: pixelated;
+    z-index: 3;
+    visibility: hidden;
+ }
+ .dialog7{
+    position: fixed;
+    top: 150px;
+    width: 300px;
+    image-rendering: pixelated;
+    z-index: 3;
+    visibility: hidden;
+ }
+ .dialog8{
+    position: fixed;
+    top: 150px;
+    width: 400px;
+    image-rendering: pixelated;
+    z-index: 3;
+    visibility: hidden;
+ }
+ .jnk{
+    position: fixed;
+    top: 150px;
+    right: 250px;
+    width: 20px;
+    image-rendering: pixelated;
+    visibility: hidden;
+ }
+ .jnk2{
+    position: fixed;
+    top: 150px;
+    right: 230px;
+    width: 20px;
+    image-rendering: pixelated;
+    visibility: hidden;
+ }
+ .instru{
+    position: fixed;
+    width: 400px;
+    top: 200px;
+    image-rendering: pixelated;
+    visibility: hidden;
+    z-index: 5;
+ }
+    .balao{
+        position: fixed;
+        width: 100px;
+        image-rendering: pixelated;
+        top: 200px;
+        left: 115px;
+        visibility: hidden;
+}
+    .balao2{
+        position: fixed;
+        width: 100px;
+        image-rendering: pixelated;
+        top: 200px;
+        left: 115px;
+        visibility: hidden;
+}
+    .balao3{
+        position: fixed;
+        width: 100px;
+        image-rendering: pixelated;
+        top: 200px;
+        left: 115px;
+        visibility: hidden;
+    }
+.bg{
+position: absolute;
+width: 200px;
+bottom: 0;
+image-rendering: pixelated;
+visibility: hidden;
+}
+#bg1{
+    left: 50px;
+}
+#bg2{
+    left: 300px;
+}
+.bg2{
+position: absolute;
+width: 200px;
+bottom: 0;
+image-rendering: pixelated;
+margin: auto;
+right: 450px;
+z-index: 5;
+visibility: hidden;
+}
+.bg3{
+position: absolute;
+width: 200px;
+bottom: 0;
+image-rendering: pixelated;
+right: 750px;
+visibility: hidden;
+z-index: 0;
+}
+</style>
+</div>
+</div>
+
+
+<style>
+    html{
+        background-image: url('assets/road.png');
+        background-size: 75rem;
+        image-rendering: pixelated;
+    }
+    .ending{
+        background-color: black;
+    }
+</style>
+
+
+</body>
+
+
+<script>
+    const endEnding = document.querySelector('.game');
+    const alex = document.querySelector('.alex');
+    const obs = document.querySelector('.obs');
+
+    salto = new Audio('jumping.wav')
+    moeda = new Audio('coins.wav')
+    anel = new Audio('super.wav')
+    
+    soco = new Audio('soco.wav');
+    crash = new Audio('crash.wav')
+    
+    janken = new Audio('janken.mp3')
+
+    end = new Audio('ending.mp3')
+
+let podePular = true;
+let alexPulando = false;
+var score = 0;
+var poder = 0;
+   
+    const pulo = () => {
+
+    if (podePular == true){
+       
+    salto.play();
+    moeda.play();
+    alex.classList.add('pulo');
+    alex.src = 'assets/alex2.png';
+
+    score += 5;
+    document.getElementById("score").innerHTML = score;
+
+    setTimeout(() => {
+    alex.src = 'assets/alex1.png';
+    alex.classList.remove('pulo');
+    }, 500);
+
+    secret();
+}
+}
+
+// detecção do obstáculo
+
+const loop = setInterval(() => {
+const obsPosition = obs.offsetLeft;
+const alexPosition = window.getComputedStyle(alex).bottom.replace('px', '');
+
+podePerder = true;
+
+if (obsPosition < 75 && obsPosition > 0 && alexPosition < 145 && podePerder == true) {
+alexPulando = true;
+
+obs.style.animation = 'none';
+obs.style.left = `${obsPosition}px`;
+// é aqui onde consertamos a posição do obstáculo quando Alex
+// colide com ela, permanecendo onde parou
+alex.src = 'assets/alex3.png';
+alex.style.width = '50px'
+alex.style.marginLeft = '20px'
+// explicar aos alunos que, como estamos usando Javascript para
+//manipular o CSS, e não podemos usar a sintaxe de formação do CSS
+//(que nesse caso seria 'margin-left: 20px') nós usamos a notação
+// CamelCase que é uma forma de usar CSS dentro do JS
+// nesse caso, [ marginLeft ='20' ] é o equivalente ao margin-left
+// do css
+podePular = false;
+powerUi = false;
+         //Para impedir o jogador de continuar usando o soco na tela de game over
+
+gameOver();
+
+if (alexPulando == true){
+    alex.src.remove('assets/alex1.png');
+    alex.src = 'assets/alex3.png';
+    powerUi = false;
+        //Para impedir o jogador de continuar usando o soco na tela de game over
+    gameOver();
+} 
+
+/* Essa declaração, junto com a condicional "If" na linha 157, impede o jogador de fazer Alex pular
+novamente após o jogo ter acabado.*/
+
+clearInterval(loop);
+
+gameOver();
+} 
+},
+10);
+
+
+document.addEventListener('keydown', pulo);
+//document.addEventListener("pointerdown", pulo); 
+      
+
+const salTar = document.getElementById('botao');
+//const releaseDiv = document.getElementById('test-release-div');
+//const noreleaseDiv = document.getElementById('test-norelease-div');
+const comprar = document.getElementById('buy')
+
+salTar.addEventListener('pointerdown', pulo, function(e) {
+    //alex.src = 'assets/alex3.png';
+  if (e.target.hasPointerCapture(e.pointerId)) {
+      e.target.releasePointerCapture(e.pointerId);
+  }
+});
+
+/*noreleaseDiv.addEventListener('pointerdown', function(e) {
+  outputDiv.innerHTML = "noreleaseDiv-pointerdown";
+});
+
+document.addEventListener('pointermove', function(e) {
+  outputDiv.innerHTML = e.target.id;
+});*/
+const hab = document.querySelector('.hab');
+const pgrafo = document.querySelector('.pontos');
+const total = document.querySelector('.total');
+
+const over = document.getElementById('reset');
+const manopla = document.getElementById('manopla');
+
+const prize = document.getElementById('preço')
+const bar = document.getElementById('uiPower')
+
+let podeComprar = true;
+
+comprar.addEventListener('pointerdown', function(e) {
+    if (score > 19 && podeComprar == true){
+        anel.play();
+        document.getElementById("score").innerHTML=
+        parseInt(document.getElementById("score").innerHTML,10)-20;
+        hab.setAttribute("style", "visibility: visible;");
+        prize.setAttribute("style", "visibility: hidden;");
+        bar.setAttribute("style", "visibility: visible;");
+        var powerUi = true;
+        podeComprar = false;
+    }
+  
+  if (e.target.hasPointerCapture(e.pointerId)) {
+      e.target.releasePointerCapture(e.pointerId);
+  }
+});
+
+over.addEventListener('pointerdown', function(e) {
+    //window.location.reload();
+    location.reload(true);
+  if (e.target.hasPointerCapture(e.pointerId)) {
+      e.target.releasePointerCapture(e.pointerId);
+  }
+});
+
+let powerUi = true;
+
+manopla.addEventListener('pointerdown', function(e) {
+
+    if(powerUi == true){
+    soco.play();
+    crash.play();
+    const obsPosition = obs.offsetLeft;
+    obs.style.left = `${obsPosition}px`;
+    //obs.setAttribute("style", "left: 77px"); esse aqui é pra enganar!
+    obs.src='assets/obs2.png';
+    alex.src = 'assets/alex4.png';
+    obs.style.animation='none';
+    podePerder = false;
+
+    setTimeout(() => {
+        obs.setAttribute("style", "right: -80px");
+        alex.src = 'assets/alex1.png';
+        obs.style.right = '-80px';
+        obs.style.animation='';
+        obs.src="assets/obs.png"
+        }, 500);
+        //Observação importante: se eu não pegar o elemento pelo ID, a pontuação não
+        //atualiza em tempo real.
+        score += 5;
+        document.getElementById("score").innerHTML = score;
+        poder += 1;
+        decreasePower();
+}
+  if (e.target.hasPointerCapture(e.pointerId)) {
+      e.target.releasePointerCapture(e.pointerId);
+  }
+});
+
+function gameOver(){
+    pgrafo.setAttribute("style", "visibility: visible;");
+    total.setAttribute("style", "visibility: visible;");
+    over.setAttribute("style", "visibility: visible;");
+    document.getElementById("pontofinal").innerHTML = score
+    return score;
+}
+
+function secret(){
+
+    if (score > 49){
+        //Se tirar o boolean pode pular dá pra hackear o game e ficar com dinheiro infinito...
+        podePular = false;
+        obs.setAttribute("style", "right: -80px");
+        obs.setAttribute("style", "display: none;");
+        alex.classList.add('vai');
+
+        setTimeout(() => {
+        alex.setAttribute("style", "display: none;");
+        }, 600);
+
+        setTimeout(() => {
+        alex.classList.remove('vai');
+        salTar.setAttribute("style", "visibility: hidden;")
+        }, 900);
+
+        /*A diferença entre visibility e display é autoexplicativa. Enquanto visibility "esconde" o elemnto,
+        suas propriedades continuam. É como se fosse um lençol invisível que fica por cima da função. Agora,
+        quando estamos lidando com display, o elemento desaparece, e suas propriedades já não exercem mais
+        efeitos.*/
+        setTimeout(() => {
+const over2 = document.getElementById('over2');
+const final = document.getElementById('final');
+over2.setAttribute("style", "visibility: visible;")
+final.setAttribute("style", "visibility: visible;")
+        }, 900);    
+    }
+}
+
+const over2 = document.getElementById('over2');
+const final = document.getElementById('final');
+const boss = document.querySelector('.gooseka');
+const dialog = document.querySelector('.dialog');
+const fundo = document.querySelector('.bg');
+const fundo2 = document.querySelector('.bg2');
+const fundo3 = document.querySelector('.bg3');
+
+final.addEventListener('pointerdown', function(e) {
+    over2.setAttribute("style", "visibility: hidden;")
+    final.setAttribute("style", "visibility: hidden;")
+    
+    fundo.setAttribute("style", "visibility: visible;")
+    fundo2.setAttribute("style", "visibility: visible;")
+    fundo3.setAttribute("style", "visibility: visible;")
+    alex.setAttribute("style", "visibility: visible;")
+    boss.setAttribute("style", "visibility: visible;")
+    
+    alex.style.width = '50px'
+    alex.src = 'assets/alex.png'
+
+    setTimeout(() => {
+        dialog.setAttribute("style", "visibility: visible;")
+        }, 1000);
+if (e.target.hasPointerCapture(e.pointerId)) {
+  e.target.releasePointerCapture(e.pointerId);
+}
+});
+
+const dialogo = document.getElementById('dialg');
+const dialogo2 = document.getElementById('dialg2');
+const dialogo3 = document.getElementById('dialg3');
+const instruc = document.getElementById('instruc');
+
+dialogo.addEventListener('pointerdown', function(e) {
+    dialog.setAttribute("style", "visibility: hidden;")
+   
+    setTimeout(() => {
+        dialogo2.setAttribute("style", "visibility: visible;")
+        }, 1000);
+});
+
+dialogo2.addEventListener('pointerdown', function(e) {
+    dialogo2.setAttribute("style", "visibility: hidden;")
+   
+    setTimeout(() => {
+        dialogo3.setAttribute("style", "visibility: visible;")
+        }, 1000);
+});
+
+dialogo3.addEventListener('pointerdown', function(e) {
+    dialogo3.setAttribute("style", "visibility: hidden;")
+    setTimeout(() => {
+        alex.classList.add('andando');
+        alex.src="alexw.gif";
+        alex.style.left = '150px';
+        parouAndar();
+        }, 1000);    
+});
+
+function parouAndar(){
+    setTimeout(() => {
+        alex.classList.remove('andando');
+        alex.src="assets/alex.png";
+        instruções();
+    }, 2000);
+}
+
+function instruções(){
+setTimeout(() => {
+instruc.setAttribute("style", "visibility: visible;")
+}, 1000);   
+instruc.addEventListener('pointerdown', function(e) {
+instruc.setAttribute("style", "visibility: hidden;")
+bossFight();
+});
+}
+
+var escolha = 0;
+const gooseka = document.querySelector('.gooseka')
+
+function bossFight(){
+const seletor = document.querySelector('.balao')
+seletor.setAttribute("style", "visibility: visible;")
+janken.play();
+alex.src="alexj.gif";
+gooseka.src="assets/gooseka.gif";
+
+setTimeout(() => {
+gooseka.style.width="70px";
+alex.src="alexjk.gif";
+gooseka.src="assets/goosekaj.gif";
+}, 8500); 
+
+setTimeout(() => {
+gooseka.style.width="90px";
+gooseka.src="assets/goosekat.png";
+jokenPo();
+}, 10000); 
+}
+
+function bossFight2(){
+const seletor = document.querySelector('.balao')
+seletor.setAttribute("style", "visibility: visible;")
+janken.play();
+alex.src="alexj.gif";
+gooseka.src="assets/gooseka.gif";
+
+setTimeout(() => {
+gooseka.style.width="70px";
+alex.src="alexjk.gif";
+gooseka.src="assets/goosekaj.gif";
+}, 8500); 
+
+setTimeout(() => {
+gooseka.style.width="90px";
+gooseka.src="assets/goosekap.png";
+jokenPo2();
+}, 10000); 
+}
+
+function jokenPo(){
+if(escolha == 1){
+    alex.setAttribute("style", "width: 90px; left: 150px")
+    alex.src='assets/alex5.png'
+    podeEscolher = false;
+    const dialogo4 = document.getElementById('dialg4');
+    const jkponto = document.getElementById('jk1');
+    setTimeout(() => {
+    dialogo4.setAttribute("style", "visibility: visible;")
+}, 1000); 
+    dialogo4.addEventListener('pointerdown', function(e) {
+    podeEscolher = true;
+    dialogo4.setAttribute("style", "visibility: hidden;")
+    jkponto.setAttribute("style", "visibility: visible;")
+    alex.style.width="50px";
+    gooseka.style.width="50px";
+    bossFight2();
+});
+}
+
+if(escolha == 2){
+    alex.setAttribute("style", "width: 100px; left: 150px")
+    alex.src='assets/alex6.png'
+    podeEscolher = false;
+}
+if(escolha == 3){
+    alex.setAttribute("style", "width: 100px; left: 150px")
+    alex.src='assets/alex7.png'
+    podeEscolher = false;
+}
+}
+
+function jokenPo2(){
+if(escolha == 1){
+    alex.setAttribute("style", "width: 90px; left: 150px")
+    alex.src='assets/alex5.png'
+    podeEscolher = false;
+    const dialogo5 = document.getElementById('dialg5');
+    const jkponto = document.getElementById('jk1');
+    const jkponto2 = document.getElementById('jk4');
+    setTimeout(() => {
+    dialogo5.setAttribute("style", "visibility: visible;")
+}, 1000); 
+    dialogo5.addEventListener('pointerdown', function(e) {
+    podeEscolher = true;
+    dialogo5.setAttribute("style", "visibility: hidden;")
+    alex.style.width="70px";
+    gooseka.style.width="50px";
+    bossFight3();  
+});
+}
+if(escolha == 3){
+    const dialogo7 = document.getElementById('dialg7');
+    const dialogo8 = document.getElementById('dialg8');
+    const jkponto2 = document.getElementById('jk4');
+    const gooseka = document.querySelector('.gooseka');
+
+    const ballon3 = document.getElementById('ballon3');
+    const jkponto = document.getElementById('jk1');
+
+    jkponto2.src='assets/janken1.png'
+    jkponto2.setAttribute("style", "visibility: visible;")
+    alex.setAttribute("style", "width: 100px; left: 150px")
+    alex.src='assets/alex7.png'
+    podeEscolher = false;
+
+    setTimeout(() => {
+    dialogo7.setAttribute("style", "visibility: visible;")
+}, 1000); 
+
+dialogo7.addEventListener('pointerdown', function(e) {
+dialogo7.setAttribute("style", "visibility: hidden;")
+
+setTimeout(() => {
+    dialogo8.setAttribute("style", "visibility: visible;")
+}, 1000); 
+});
+
+dialogo8.addEventListener('pointerdown', function(e) {
+
+dialogo8.setAttribute("style", "visibility: hidden;")
+
+jkponto.setAttribute("style", "visibility: hidden;")
+ballon3.setAttribute("style", "visibility: hidden;")
+jkponto2.setAttribute("style", "visibility: hidden;")
+
+alex.setAttribute("style", "width: 50px; left: 150px")
+alex.src='assets/alex.png'
+
+setTimeout(() => {
+gooseka.style.width="80px";
+gooseka.src="assets/goosekax.gif";
+}, 500);
+
+setTimeout(() => {
+gooseka.style.width="50px";
+gooseka.src="assets/goosekaf3.png";
+
+alex.classList.add('andando2');
+        alex.src="alexw.gif";
+        alex.style.left = '300px';
+        parouAndar2();
+}, 1800);
+
+
+});
+}
+}
+
+function parouAndar2(){
+    setTimeout(() => {
+        alex.classList.remove('andando2');
+        alex.src="assets/alex.png";
+        gooseka.setAttribute("style", "visibility: hidden;")
+        anel.play();
+        ending();
+    }, 2000);
+}
+
+function ending(){
+
+    setTimeout(() => {
+    end.play();
+    const html = document.querySelector('html')
+    const fix = document.querySelector('.ending')
+    html.setAttribute("style", "background-image: url('assets/end.png');")
+    fix.setAttribute("style", "position: fixed; z-index: 10;")
+    endEnding.setAttribute("style", "visibility: hidden;");
+    fundo.setAttribute("style", "visibility: hidden;")
+    fundo2.setAttribute("style", "visibility: hidden;")
+    fundo3.setAttribute("style", "visibility: hidden;")
+    alex.setAttribute("style", "visibility: hidden;")
+    }, 1000);
+}
+
+
+function bossFight3(){
+const seletor = document.querySelector('.balao')
+seletor.setAttribute("style", "visibility: visible;")
+janken.play();
+alex.src="alexj.gif";
+gooseka.src="assets/gooseka.gif";
+
+setTimeout(() => {
+gooseka.style.width="70px";
+alex.src="alexjk.gif";
+gooseka.src="assets/goosekaj.gif";
+}, 8500); 
+
+setTimeout(() => {
+gooseka.style.width="90px";
+gooseka.src="assets/goosekap.png";
+jokenPo3();
+}, 10000); 
+}
+
+function jokenPo3(){
+if(escolha == 1){
+    alex.setAttribute("style", "width: 90px; left: 150px")
+    alex.src='assets/alex5.png'
+    podeEscolher = false;
+    const dialogo5 = document.getElementById('dialg5');
+    const dialogo6 = document.getElementById('dialg6');
+    const jkponto3 = document.getElementById('jk3');
+    jkponto3.src='assets/janken1.png';
+    jkponto3.settAttribute("style", "visibility: visible;")
+    setTimeout(() => {
+    dialogo5.setAttribute("style", "visibility: visible;")
+}, 1000); 
+    dialogo5.addEventListener('pointerdown', function(e) {
+    dialogo5.setAttribute("style", "visibility: hidden;")
+});
+if(escolha ==2){
+    alex.setAttribute("style", "width: 90px; left: 150px")
+    alex.src='assets/alex7.png'
+    podeEscolher = false;
+}
+}
+}
+
+const selecionar = document.getElementById('ballon')
+const seletor1 = document.querySelector('.balao')
+
+const seletor2 = document.getElementById('ballon2')
+const seletor3 = document.getElementById('ballon3')
+
+let podeEscolher = true;
+
+selecionar.addEventListener('pointerdown', function(e) {
+    if(podeEscolher == true){
+    seletor1.setAttribute("style", "visibility: hidden;")
+    seletor2.setAttribute("style", "visibility: visible;")
+    escolha = 2;
+    }
+});
+
+seletor2.addEventListener('pointerdown', function(e) {
+    if(podeEscolher == true){
+    seletor2.setAttribute("style", "visibility: hidden;")
+    seletor3.setAttribute("style", "visibility: visible;")
+    escolha = 3;
+    }
+});
+
+seletor3.addEventListener('pointerdown', function(e) {
+    if(podeEscolher == true){
+    seletor3.setAttribute("style", "visibility: hidden;")
+    seletor1.setAttribute("style", "visibility: visible;")
+    escolha = 1;
+    }
+});
+
+function decreasePower(){
+    const bar = document.getElementById('uiPower')
+    if (poder == 1){
+    bar.src = 'assets/barrinha1.png'
+    }
+    if(poder == 2){
+        bar.src = 'assets/barrinha2.png'
+    }
+    if(poder == 3){
+        bar.src = 'assets/barrinha3.png'
+    }
+    if(poder == 4){
+        bar.src = 'assets/barrinha4.png'
+    }
+    if(poder == 5){
+        bar.src = 'assets/barrinha5.png'
+    }
+    if(poder == 6){
+        hab.setAttribute("style", "visibility: hidden;");
+        prize.setAttribute("style", "visibility: visible;");
+        bar.setAttribute("style", "visibility: hidden;");
+        poder = 0;
+    }
+}
+
+</script>
+</html>
