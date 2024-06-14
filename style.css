@@ -1,0 +1,204 @@
+@import url(https://db.onlinewebfonts.com/c/f555c47ffc99d5fbcc445e615749dc38?family=Pixel+NES);
+.itensintro{
+display: flex;
+display: repeat;
+width: 100px;
+height: 100px;					
+border-radius: 100%;
+animation: drop-in 1000ms;
+} 
+.tab3{
+background-color: coral;
+border: solid black 3px;
+display: block;
+margin: auto;
+width: 900px;
+margin-bottom: 20px;
+height: 10px;
+}
+.tab2{
+margin: 50px;
+height: 150px;
+width: 300px;
+display: block;
+margin: auto;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+background-image: url('https://t3.ftcdn.net/jpg/05/25/45/00/360_F_525450046_qxAUJYB6UAtpRsbskXWeiFZQUA1bgzC4.jpg');
+border: solid black 3px;
+background-size: 90%;
+}
+#wow{
+ display: inline;
+}
+ .table{
+display: flex;
+flex-direction: column;
+position: static;
+margin-right: auto;
+margin-left: auto;
+margin-top: -150px;
+}
+.lista{
+width: 50px;
+height: 50px;
+image-rendering: pixelated;
+}
+.black{
+color: black;
+}
+.scrollToTopBtn {
+  background-color: #850f11;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+  line-height: 48px;
+  width: 48px;
+	  /* place it at the bottom right corner */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+	  /* keep it on top of everything else */
+  z-index: 100;
+	  /* hide with opacity */
+  opacity: 0;
+	  /* also add a translate effect */
+  transform: translateY(100px);
+	  /* and a transition */
+  transition: all .5s ease
+}
+    
+.showBtn {
+  opacity: 1;
+  transform: translateY(0)
+}
+ html{
+    overflow-x: hidden;
+  }
+  body{
+    overflow-x: hidden;
+background-image:url('caderno.png');
+background-size: calc(cover 100% - 500px);
+
+bottom: 0;
+
+background-position: center;
+
+background-position-x: left;
+  }
+  @media only screen and (max-width: 600px){
+.mobile{
+  width: 335px;
+}
+.mobil{
+  width: 325px;
+  height: 10%;
+}
+.imgmobile{
+  width: 90%;
+ }
+ .foot{
+position: absolute;
+width: 40px;
+margin-top: 5px;
+margin-left: 20px;
+}
+.iear{
+  image-rendering: pixelated; float: right; width: 100px;
+  border: solid black 4px;
+  margin-left: 5px;
+ }
+ .foottext{
+background: skyblue; 
+border: solid black 5px;
+left: 90px; font-size: 15px; 
+text-align: left;
+justify-content: right;
+padding: 20px;
+ }
+ .footext{
+  padding: 10px;
+  text-align: center;
+  background: url('caderno.png');
+  background-size: 100%;
+ }
+ .github{
+  width: 30px;
+ }
+ .ig{
+  width: 50px;
+  right: 500px;
+ }
+}
+@media screen and (min-width: 1200px){
+  .ig{
+  position: absolute;
+  width: 70px;
+  right: 500px;
+  margin-bottom: 15px;
+ }
+  .github{
+    width: 50px;
+  }
+  .iear{
+    image-rendering: pixelated; float: right; width: 100px;
+    border: solid black 5px;
+  }
+ .mobil{ 
+  margin: auto;
+  width: 650px; 
+  background: #ff4032; 
+  border: solid black 5px; 
+  margin-bottom: 30px;
+ }
+ .foot{
+  float:left; 
+  position: absolute; 
+  margin-top: 30px;
+  left: 25px; 
+  width: 100px; 
+  border-radius: 500px; 
+  background: white;
+ }
+ .foottext{
+  background: skyblue; border: solid black 5px;left: 90px; text-align: center;
+ }
+ .footext{
+  text-align: center;
+  background: url('caderno.png');
+  background-size: 10%;
+  width: 900px;
+  margin: auto;
+  margin-bottom: 30px;
+ }
+}
+ .heart{
+          content: url('https://media.tenor.com/0-M-_QQY4eQAAAAj/pixel-heart.gif');
+          width: 50px;
+          image-rendering: pixelated;
+        }
+        .vertik{
+position: relative;
+
+right: 0px;
+left: -150px;
+bottom: 150px;
+        }
+   
+@media (min-width: 1200px) { 
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+ }
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+ }
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+ }
+}
+body {
+margin: 0 auto;
+z-index: 0;
+}
