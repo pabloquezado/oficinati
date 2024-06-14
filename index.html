@@ -218,8 +218,22 @@ background-repeat: no-repeat;  border: solid black 3px;   grid-template-columns:
          <h5 class="black" style="background-size: 13%; color: white; background-image: url('assets/gramado.png');border-bottom: solid black 6px;left: 90px; text-align: center;"><br>Tecnologias que vamos usar em nossos encontros:
      <br><br>
          </h5> 
-         <button class="scrollToTopBtn" style="background: url('assets/subir.png'); image-rendering: pixelated; width: 100px; height:100px; background-size: 100px 100px; background-repeat: no-repeat;"></button>
+         <button class="scrollToTopBtn" id=buttondesktop></button>
          <style>
+		   @media screen and (min-width: 1200px){
+              #buttondesktop{
+            background: url('subir.png'); image-rendering: pixelated; width: 100px; height:100px; background-size: 100px 100px; background-repeat: no-repeat;
+          }
+        }
+        @media only screen and (max-width: 600px){
+#buttondesktop{
+  width: 50px;
+  height: 50px;
+  background: url('subir.png');
+  background-size: 50px 50px;
+  image-rendering: pixelated;
+}
+        }
           .scrollToTopBtn {
   background-color: #850f11;
   border: none;
