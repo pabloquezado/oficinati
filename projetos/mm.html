@@ -14,14 +14,14 @@
 <!--<div id="hab" class="sword"></div>-->
 <img id="bull" class="bullet"></div>
 <body>
-    <div class="mario-game" id="container">
+    <div class="megaman-game" id="container">
 		<div class="scorebar">
 		
-			<p><span class="topline-mario">MARIO</span>
+			<p><span class="topline-megaman">megaman</span>
 				<span class="topline-world">WORLD</span>
 				<span class="topline-time">TIME</span>
 				<span id="bottomline-score">000000</span>
-				<span id="bottomline-coin"><img src="https://raw.githubusercontent.com/LantareCode/random-this-and-thats/master/CSS/SuperMario-Animation/images/Coin.gif" height="40px"> x <span id="updateCoins">00</span></span>
+				<span id="bottomline-coin"><img src="https://raw.githubusercontent.com/LantareCode/random-this-and-thats/master/CSS/Supermegaman-Animation/images/Coin.gif" height="40px"> x <span id="updateCoins">00</span></span>
 				<span class="bottomline-world">1 - 1</span>
 				<span class="bottomline-time" id="timeLeft">000</span>
 			
@@ -33,7 +33,7 @@
 		<div id="plants" class="layer plants"></div>
 		<div id="moutains" class="layer moutains"></div>
 		<div id="clouds" class="layer clouds"></div>
-		<div id="mario" class="lookingRight"></div>
+		<div id="megaman" class="lookingRight"></div>
 	</div>
 </body>
 <style>
@@ -107,7 +107,7 @@
 			background-size: 100%;
 			background-repeat: no-repeat;
     }
-            .mario-game {
+            .megaman-game {
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -117,7 +117,7 @@
 			height: 715px;  
             }       
 		
-		.mario-game #background {
+		.megaman-game #background {
 			position: absolute;
 			top: 5px;
 			left: 0;
@@ -151,23 +151,23 @@
 		}
 
 		#plants {
-			/*background: url("https://itc.yananas.com/git/mario/assets/mario_layer_2.gif");
+			/*background: url("https://itc.yananas.com/git/megaman/assets/megaman_layer_2.gif");
             background-size: 9500px;
             background-repeat:no-repeat;
 			z-index: 3;*/
 		}
 
 		#mountains {
-			background: url("https://itc.yananas.com/git/mario/assets/mario_layer_3.gif");
+			background: url("https://itc.yananas.com/git/megaman/assets/megaman_layer_3.gif");
 			z-index: 2;
 		}
 
 		#clouds {
-			/*background: url("https://itc.yananas.com/git/mario/assets/mario_layer_4.gif");
+			/*background: url("https://itc.yananas.com/git/megaman/assets/megaman_layer_4.gif");
 			z-index: 1;*/
 		}
 
-		.mario-game #mario {
+		.megaman-game #megaman {
 			position: absolute;
 			left: 100px;
 			top: 180px;
@@ -180,7 +180,7 @@
 			background-repeat: no-repeat;
 		}
 
-		#mario.jumping {
+		#megaman.jumping {
 			animation: jump 1s ease 0s  infinite normal ;
 			/*animation-fill-mode: forwards;*/
 
@@ -222,7 +222,7 @@
 			}
 		}
 
-		#mario.lookingLeft {
+		#megaman.lookingLeft {
             position: absolute;
 			left: 100px;
 			top: 180px;
@@ -235,7 +235,7 @@
 			background-repeat: no-repeat;
 		}
 
-		#mario.lookingRight {
+		#megaman.lookingRight {
 			position: absolute;
 			left: 100px;
 			top: 180px;
@@ -248,7 +248,7 @@
 			background-repeat: no-repeat;
 		}
 
-		#mario.runningRight {
+		#megaman.runningRight {
             position: absolute;
 			left: 100px;
 			top: 150px;
@@ -261,7 +261,7 @@
 			background-repeat: no-repeat;
 		}
 
-		#mario.runningLeft {
+		#megaman.runningLeft {
             position: absolute;
 			left: 100px;
 			top: 150px;
@@ -274,7 +274,7 @@
 			background-repeat: no-repeat;
 		}
 
-        #mario.charging {
+        #megaman.charging {
             position: absolute;
 			left: 100px;
 			top: 150px;
@@ -286,7 +286,7 @@
             background-size: 180px 210px;
 			background-repeat: no-repeat;
 		}
-          #mario.bustershot {
+          #megaman.bustershot {
             position: absolute;
 			left: 100px;
 			top: 150px;
@@ -298,7 +298,7 @@
             background-size: 180px 210px;
 			background-repeat: no-repeat;
 		}
-		#mario.hab {
+		#megaman.hab {
             position: absolute;
 			left: 100px;
 			top: 130px;
@@ -310,7 +310,7 @@
             background-size: 250px 250px;
 			background-repeat: no-repeat;
 		}
-		#mario.bull {
+		#megaman.bull {
             position: absolute;
 			left: 100px;
 			height: 100%;
@@ -332,7 +332,7 @@
 
 		/* SCORE BAR */
 
-		.topline-mario{
+		.topline-megaman{
 			position:absolute;
 		}
 		.topline-world{
@@ -407,7 +407,7 @@ var foreground2 = document.getElementById("background")
 var plants = document.getElementById("plants");
 var moutains  = document.getElementById("moutains");
 var clouds  = document.getElementById("clouds");
-var mario = document.getElementById("mario");
+var megaman = document.getElementById("megaman");
 var items = document.getElementById("items");
 
 var button = document.getElementById("button");
@@ -429,9 +429,9 @@ setInterval(function(){
 		move(plants, -23);
 		move(moutains, -6);
 		move(clouds, -4);
-		mario.classList.remove("lookingLeft");
-		mario.classList.add("lookingRight");
-		mario.classList.add("runningRight");
+		megaman.classList.remove("lookingLeft");
+		megaman.classList.add("lookingRight");
+		megaman.classList.add("runningRight");
 	}
 }, 10);
 
@@ -443,9 +443,9 @@ setInterval(function(){
 		move(plants, 23);
 		move(moutains, 6);
 		move(clouds, 4);
-		mario.classList.remove("lookingRight");
-		mario.classList.add("lookingLeft");
-		mario.classList.add("runningLeft");
+		megaman.classList.remove("lookingRight");
+		megaman.classList.add("lookingLeft");
+		megaman.classList.add("runningLeft");
 	}
 }, 10);
 
@@ -483,14 +483,14 @@ window.setInterval(
 
 
 
-var music = new Audio('https://itc.yananas.com/git/mario/assets/overworld.mp3');
+var music = new Audio('https://itc.yananas.com/git/megaman/assets/overworld.mp3');
 //music.play();
 document.addEventListener("keydown", function() {
 	keyReturn(event);
 });
 
 button.addEventListener("pointerdown", function(e) {
-    mario.src='../assets/megamanr.gif';
+    megaman.src='../assets/megamanr.gif';
     runningRight = 1;
 });
 button.addEventListener("pointerup", function(e) {
@@ -521,31 +521,31 @@ const mousePress = () => {
     timerValue++
     
     if(timerValue === 2){
-mario.classList.remove("bustershot");
-mario.classList.add("charging");
+megaman.classList.remove("bustershot");
+megaman.classList.add("charging");
 charging.play();
     }
 
     if(timerValue === 35) {
 chargeshot.play();
-mario.classList.remove("charging");
+megaman.classList.remove("charging");
     }
   }, 100)
 }
 
 const mouseRelease = () => {
-mario.classList.remove("charging");
+megaman.classList.remove("charging");
   clearInterval(interval)
   timerValue = 0
 }
 
 button3.addEventListener('pointerdown', function(e) {
-mario.classList.add("bustershot");
+megaman.classList.add("bustershot");
 bustershot.play();
 });
 
 button3.addEventListener('pointerup', function(e) {
-mario.classList.remove("bustershot");
+megaman.classList.remove("bustershot");
 });
 
 button3.addEventListener("pointerdown", mousePress)
@@ -555,17 +555,17 @@ document.addEventListener("keyup", noMove);
 function noMove() {
 	runningRight = 0;
 	runningLeft = 0;
-	mario.classList.remove("runningLeft");
-	mario.classList.remove("runningRight");
+	megaman.classList.remove("runningLeft");
+	megaman.classList.remove("runningRight");
 }
 
 hab.addEventListener('pointerdown', function(e) {
-mario.classList.add("hab");
+megaman.classList.add("hab");
 
 });
 
 hab.addEventListener('pointerup', function(e) {
-mario.classList.remove("hab");
+megaman.classList.remove("hab");
 });
 
 
@@ -583,16 +583,16 @@ function keyReturn(e){
 
 	if (event.keyCode == 38) {
 		jumping = 1;
-		mario.classList.add("jumping");
+		megaman.classList.add("jumping");
 		audio = new Audio('');
 		audio.play(); 
 
 		setTimeout(function(){
-			mario.classList.remove("jumping")
+			megaman.classList.remove("jumping")
 		}, 500);
 		if (parseInt(foreground.style.left) < -645 &&  parseInt(foreground.style.left) > -710) {
 			console.log("coin!");
-			audio = new Audio('https://itc.yananas.com/git/mario/assets/coin.mp3');
+			audio = new Audio('https://itc.yananas.com/git/megaman/assets/coin.mp3');
 			setTimeout(function() {
 				audio.play(); 
 				updateScore(100);
