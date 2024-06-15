@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <main id="drum-machine" class="content">
+        <h1 id="display">Drumpads</h1>
+        <div id="panel" class="buttons">
+           <button id="Q" style="background-image: url('../assets/drum.png'); background-size: 50px; background-repeat: no-repeat; background-position: center;" class="drum-pad hat" value="7">
+             <span class="label"></span>
+             <audio id="Kick" class="clip" src="kick.wav" type="audio/mpeg" preload="auto" />
+           </button>
+           <button id="W" style="background-image: url('../assets/snare.png'); background-size: 50px; background-repeat: no-repeat; background-position: center;" class="drum-pad cymbal" value="8">
+             <span class="label"></span>
+             <audio id="Snare" class="clip" src="snare.wav" type="audio/mpeg" preload="auto" />
+           </button>
+           <button id="E" style="background-image: url('../assets/clap.png'); background-size: 50px; background-repeat: no-repeat; background-position: center;" class="drum-pad cymbal" value="9">
+             <span class="label"></span>
+             <audio id="Clap" class="clip" src="clap.wav" type="audio/mpeg" preload="auto" />
+           </button>
+           <button id="A" style="background-image: url('../assets/hat.png'); background-size: 50px; background-repeat: no-repeat; background-position: center;" class="drum-pad clap" value="4">
+             <span class="label"></span>
+             <audio id="Closed-Hat" class="clip" src="hh.wav" type="audio/mpeg" preload="auto" />
+           </button>
+           <button id="S" style="background-image: url('../assets/openhat.png'); background-size: 50px; background-repeat: no-repeat; background-position: center;" class="drum-pad snare" value="5">
+             <span class="label"></span>
+             <audio id="Open-Hat" class="clip" src="oh.wav" type="audio/mpeg" preload="auto" />
+           </button>
+           <button id="D" style="background-image: url('../assets/shaker.png'); background-size: 50px; background-repeat: no-repeat; background-position: center;" class="drum-pad clap" value="6">
+             <span class="label"></span>
+             <audio id="Shaker" class="clip" src="https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3" type="audio/mpeg" preload="auto" />
+           </button>
+           <button id="Z" class="drum-pad drum" value="1">
+             <span class="label"></span>
+             <audio id="Kick-n'-Hat" class="clip" src="crashm.wav" type="audio/mpeg" preload="auto" />
+           </button>
+           <button id="X" class="drum-pad drum" value="2">
+             <span class="label"></span>
+             <audio id="Kick" class="clip" src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" type="audio/mpeg" preload="auto" />
+           </button>
+           <button id="C" class="drum-pad drum" value="3">
+             <span class="label"></span>
+             <audio id="Closed-HH" class="clip" src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" type="audio/mpeg" preload="auto" />
+           </button>
+        </div>
+      </main>
+
+<style>
+/*
+====================================
+
+Drum Machine CSS
+
+====================================
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  font-family: Helvetica, sans-serif;
+  vertical-align: baseline;
+}
+
+
+/*
+------------------------------------
+Display
+------------------------------------ */
+
+#display {
+  font-weight: normal;
+  font-size: 1.5em;
+  color: #fff;
+  background: #000;
+  text-align: center;
+  margin: 0;
+  padding: 0 1em;
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*
+------------------------------------
+Buttons
+------------------------------------ */
+
+#panel {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  height: 80%;
+}
+
+button {
+  font-size: 2em;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drum-pad {
+  float: left;
+  width: 33.333333%;
+  height: 33.333333%;
+  font-size: 1.6em;
+}
+
+
+/*
+------------------------------------
+Color
+------------------------------------ */
+
+button {
+  color: #fff;
+  background: DodgerBlue;
+  border: 1px solid #000;
+}
+
+button:hover {
+    background: #06c;
+}
+
+button.select,
+button:active {
+    background: #06c;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.clap {
+  background: DodgerBlue;
+}
+
+.clap:hover {
+  background: #06c;
+}
+
+.clap.select,
+.clap:active {
+  background: #004d99;
+}
+
+.hat {
+  background: DarkOrange;
+}
+
+.hat:hover {
+  background: #cc7000;
+}
+
+.hat.select,
+.hat:active {
+  background: #995400;
+}
+
+.drum {
+  background: red;
+}
+
+.drum:hover {
+  background: rgb(61, 61, 61);
+}
+
+.drum.select,
+.drum:active {
+  background: rgb(61, 61, 61);
+}
+
+.cymbal {
+  background: #00b300;
+}
+
+.cymbal:hover {
+  background: #090;
+}
+
+.cymbal.select,
+.cymbal:active {
+  background: #008000;
+}
+
+
+/*
+------------------------------------
+Media Queries
+------------------------------------ */
+
+@media (min-width: 600px) {
+
+  #display {
+    font-size: 3em;
+  }
+
+  .button {
+    font-size: 3em;
+  }
+
+}
+</style>      
+    
+</body>
+<script>
+    /*--------------------------------*/
+/* JavaScript Drum Machine        */
+/*--------------------------------*/
+/* by Stephen Bau                 */
+/*--------------------------------*/
+
+var display = document.getElementById("display");
+var pads = document.getElementsByClassName("drum-pad");
+
+var key = null;
+var sound = null;
+
+init();
+
+function init() {
+  for (var i = 0; i < pads.length; i++) {
+    var pad = pads[i];
+    pad.addEventListener("click", function( event ) {
+      getInput(this);
+    });
+  }
+  keyboard();
+}
+
+function getInput(pad) {
+  key = pad.id;
+  playSound(pad);
+}
+
+function playSound(pad) {
+  sound = pad.querySelector("audio");
+  display.innerText = sound.id;
+  sound.play();
+  sound.currentTime = 0;
+}
+
+function keyboard() {
+  keyboardEvents("keydown");
+  keyboardEvents("keyup");
+}
+
+function keyboardEvents(keyEvent) {
+  document.addEventListener(keyEvent, function (event) {
+    if (event.defaultPrevented) {
+      return;
+    }
+    var key = event.key || event.keyCode;
+
+    for (var i = 0; i < pads.length; i++) {
+      var pad = pads[i];
+      if (pad.id == key || pad.id == key.toUpperCase() || pad.value == key) {
+        if (keyEvent == "keydown") {
+          pad.classList.add("select");
+          getInput(pad);
+        }
+        if (keyEvent == "keyup") {
+          pad.classList.remove("select");
+        }
+      }
+    }
+  });
+}
+
+</script>
+</html>
