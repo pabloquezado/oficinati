@@ -1,6 +1,6 @@
 {
     "name": "Oficina de T.I",
-    "short_name": "PFP",
+    "short_name": "OF TI",
     "id": "/?source=pwa",
     "start_url": "index.html",
     "display": "standalone",
@@ -10,12 +10,12 @@
 "description": "Projeto de Inclusão Digital",
 "icons":[
     {
-        "src": "assets/capa.png",
+        "src": "https://pabloquezado.github.io/oficinati/assets/capa.png",
         "sizes": "500x500",
         "type": "image/png"
     },
     {
-        "src": "assets/capa.png",
+        "src": "https://pabloquezado.github.io/oficinati/assets/capa.png",
         "sizes": "500x500",
         "type": "image/png"
     }
