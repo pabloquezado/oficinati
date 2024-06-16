@@ -10,12 +10,12 @@
 "description": "Projeto de Inclusão Digital",
 "icons":[
     {
-        "src": "capa.png",
+        "src": "assets/capa.png",
         "sizes": "500x500",
         "type": "image/png"
     },
     {
-        "src": "capa.png",
+        "src": "assets/capa.png",
         "sizes": "500x500",
         "type": "image/png"
     }
