@@ -1,0 +1,23 @@
+{
+    "name": "Oficina de T.I",
+    "short_name": "PFP",
+    "id": "/?source=pwa",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#5900b3",
+    "theme_color":"black",
+    "scope": ".",
+"description": "Projeto de Inclusão Digital",
+"icons":[
+    {
+        "src": "capa.png",
+        "sizes": "500x500",
+        "type": "image/png"
+    },
+    {
+        "src": "capa.png",
+        "sizes": "500x500",
+        "type": "image/png"
+    }
+]
+}
