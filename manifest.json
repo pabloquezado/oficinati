@@ -2,11 +2,11 @@
   "name": "Oficina de T.I",
   "short_name": "Oficina T.I",
   "id": "/?source=pwa",
-  "start_url": "index.html",
+  "start_url": "https://pabloquezado.github.io/oficinati/",
   "display": "standalone",
   "background_color": "#5900b3",
   "theme_color": "#00d1ff",
-  "scope": "index.html",
+  "scope": "https://pabloquezado.github.io/oficinati/",
   "description": "Projeto de Inclusão Digital",
   "icons": [
     {
