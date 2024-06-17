@@ -8,6 +8,7 @@
   "theme_color": "#00d1ff",
   "scope": "https://pabloquezado.github.io/oficinati/",
   "description": "Projeto de Inclusão Digital",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "https://pabloquezado.github.io/oficinati/assets/icon.png",
