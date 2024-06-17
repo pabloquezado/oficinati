@@ -41,7 +41,12 @@
         </head>
         
         <body>
-	<button id="install" hidden>Install</button>
+	<button id="setup_button" onclick="installApp()">Installer</button>
+<style>
+#setup_button {
+    display: none;
+}
+</style>
           <section class="portfolio-section" id="portfolio">
             <div class="container-fluid">
               <div class="row">
@@ -520,29 +525,39 @@ document.addEventListener("scroll", handleScroll)
 		}
 	}
 	}
-	let installPrompt = null;
-const installButton = document.querySelector("#install");
+let deferredPrompt; // Allows to show the install prompt
+let setupButton;
 
-window.addEventListener("beforeinstallprompt", (event) => {
-  event.preventDefault();
-  installPrompt = event;
-  installButton.removeAttribute("hidden");
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    console.log("beforeinstallprompt fired");
+    if (setupButton == undefined) {
+        setupButton = document.getElementById("setup_button");
+    }
+    // Show the setup button
+    setupButton.style.display = "inline";
+    setupButton.disabled = false;
 });
 
-
-
-installButton.addEventListener("click", async () => {
-  if (!installPrompt) {
-    return;
-  }
-  const result = await installPrompt.prompt();
-  console.log(`Install prompt was: ${result.outcome}`);
-  disableInAppInstallPrompt();
-});
-
-function disableInAppInstallPrompt() {
-  installPrompt = null;
-  installButton.setAttribute("hidden", "");
+function installApp() {
+    // Show the prompt
+    deferredPrompt.prompt();
+    setupButton.disabled = true;
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice
+        .then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('PWA setup accepted');
+                // hide our user interface that shows our A2HS button
+                setupButton.style.display = 'none';
+            } else {
+                console.log('PWA setup rejected');
+            }
+            deferredPrompt = null;
+        });
 }
 </script>
         </body>
