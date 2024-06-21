@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reconhecimento de Voz</title>
+</head>
+<body>
+  <div class="imageWrapper">
+    <img src="https://opengameart.org/sites/default/files/robot-run.gif" alt="foto">
+</div>
+<div class="container">
+    <div class="texts">
+        <p class="reply">
+            Aguardando comando de voz...
+        </p>
+    </div>
+</div>
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #263238;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    font-family: Montserrat;
+}
+
+.imageWrapper {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.imageWrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    mix-blend-mode: lighten;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.texts {
+    position: relative;
+    color: black;
+    padding: 25px 50px;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 15px;
+    text-align: left;
+    width: 60%;
+}
+p:first-letter {
+    text-transform: capitalize;
+}
+.reply {
+    text-align: right;
+}
+
+p:last-child {
+    margin-bottom: 100px;
+}
+
+iframe {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+ul {
+    text-align: left;
+}
+</style>
+</body>
+<script>
+  window.SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+let texts = document.querySelector(".texts"); // Get the element.
+const recognition = new SpeechRecognition(); // Getting Speech Recognition api
+recognition.interimResults = true; // Browser corrects user's spelling mistakes and finalizes them.
+recognition.lang = "pt-BR"; // Language
+
+// If localStorage has 'previousChatForAIByShu-vro' item, get it. Or set the array to null.
+let textArray = localStorage.getItem("previousChatForAIByShu-vro")
+    ? JSON.parse(localStorage.getItem("previousChatForAIByShu-vro"))
+    : [];
+if (!localStorage.getItem("previousChatForAIByShu-vro")) {
+    // Setting Item to local storage.
+    localStorage.setItem(
+        "previousChatForAIByShu-vro",
+        JSON.stringify(textArray)
+    );
+}
+
+// Loading previous Chats.
+class PastChat {
+    constructor(text) {
+        this.text = text;
+        if (this.text.includes("repl.")) {
+            this.text = this.text.replace("repl.", "");
+            this.reply();
+        } else if (
+            text.includes("https://pt.wikipedia.org/w/index.php?search=")
+        ) {
+            this.panel();
+        } else {
+            this.comment();
+        }
+    }
+    // The comment generator function
+    comment() {
+        let p = document.createElement("p");
+        p.innerText = this.text;
+        texts.appendChild(p);
+    }
+    // The reply generator function
+    reply() {
+        let p = document.createElement("p");
+        p.classList.add("reply");
+        p.innerText = this.text;
+        texts.appendChild(p);
+    }
+    // The iframe generator function
+    panel() {
+        let iframe = document.createElement("iframe");
+        iframe.src = this.text;
+        texts.appendChild(iframe);
+    }
+}
+
+// For each text in the textArray...
+for (let i = 0; i < textArray.length; i++) {
+    const text = textArray[i];
+    new PastChat(text);
+}
+
+let p = document.createElement("p");
+recognition.addEventListener("result", (e) => {
+    texts.appendChild(p);
+    let text = Array.from(e.results)
+        .map((result) => result[0])
+        .map((result) => result.transcript)
+        .join("");
+
+    p.textContent = text;
+    if (e.results[0].isFinal) {
+        textArray.push(text); // Push the text to the text array.
+        localStorage.setItem(
+            "previousChatForAIByShu-vro",
+            JSON.stringify(textArray) // Stringify the text array
+        );
+
+        // All the possible condition.
+        if (text.includes("How are you")) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            p.innerText = "I am fine";
+            texts.appendChild(p);
+            textArray.push("repl.I am fine");
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+        } else if (text.includes("Oi") || text.includes("Hii")) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            p.innerText = "Olá!";
+            texts.appendChild(p);
+            textArray.push("repl.Olá!");
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+        } else if (
+            text.includes("Qual seu nome") ||
+            text.includes("Qual seu nome")
+        ) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            p.textContent = "Meu nome é Bot";
+            texts.appendChild(p);
+            textArray.push("repl.Meu nome é Bot");
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+        } else if (text.includes("Obrigado")) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            p.textContent = "Disponha.";
+            texts.appendChild(p);
+            textArray.push("repl.Disponha");
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+        } else if (text.includes("Deletar conversa")) {
+            p = document.querySelectorAll("p");
+            let iframe = document.querySelectorAll("iframe");
+            textArray = [];
+            localStorage.setItem("previousChatForAIByShu-vro", [
+                JSON.stringify(textArray)
+            ]);
+            iframe.forEach((frame) => {
+                frame.remove();
+            });
+            p.forEach((para) => {
+                para.remove();
+            });
+        } else if (text.includes("Pesquisar")) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            p.textContent = text.replace("Pesquisar", "Pesquisando");
+            textArray.push("repl.Pesquisando" + text.replace("pesquisar", ""));
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+            text = text.replace(" ", "?q=");
+            texts.appendChild(p);
+            window.open("https://google.com/" + text);
+        } else if (text.includes("YouTube")) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            textArray.push("repl.Pesquisando" + text.replace("YouTube", ""));
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+            p.textContent = text.replace("YouTube", "Pesquisando");
+            text = text.replace(" ", "=");
+            texts.appendChild(p);
+            text = text.replace("YouTube", "");
+            window.open("https://www.youtube.com/results?search_query" + text);
+        } else if (text.includes("ajuda") || text.includes("Ajuda")) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            p.innerHTML = `Certamente poderei te ajudar. Mas primeiro, é preciso que conheça meus comandos. Confira os comandos que posso realizar.
+            <ul>
+                <li>Fale <b>Deletar conversa</b> to clear the screen including all the conversions.</li>
+                <li>Fale <b>Pesquisar</b> para pesquisar qualquer coisa.</li>
+                <li>Fale <b>YouTube</b> para uma pesquisa <a href="https://www.youtube.com">YouTube</a>.</li>
+                <li>Fale <b>Website</b> para acessar um site. <strong>Nota: </strong> O site precisa ser válido.</li>
+                <li>Fale <b>Quero saber sobre</b> para pesquisar na Wikipédia.</li>
+                <li>Fale <b>'Hora' or 'data'</b> para informar as horas..</li>
+            </ul>`;
+            texts.appendChild(p);
+        } else if (text.includes("Website")) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            text = text.replace("Website ", "");
+            p.textContent = "Acessando " + "'" + text + "'...";
+            textArray.push("repl.Acessando " + text + "...");
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+            texts.appendChild(p);
+            window.open("https://" + text + "com/");
+        } else if (
+            text.includes("Data") ||
+            text.includes("Hora") ||
+            text.includes("data") ||
+            text.includes("hora")
+        ) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            const date = new Date();
+            const options = { weekday: "long", month: "long", day: "numeric" };
+            let day = date.toLocaleDateString("pt-BR", options);
+            let time = date.toLocaleTimeString();
+            p.textContent = time + ", " + day;
+            textArray.push("repl." + time + ", " + day);
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+            texts.appendChild(p);
+        } else if (text.includes("Quero saber sobre")) {
+            p = document.createElement("p");
+            p.classList.add("reply");
+            text = text.replace("Quero saber sobre", "");
+            p.textContent =
+                "Encontrei isso para você " +
+                "'" +
+                text +
+                "'...";
+
+            textArray.push(
+                "repl." +
+                    "Encontrei isso para você " +
+                    "'" +
+                    text +
+                    "'..."
+            );
+            let windows = "https://br.wikipedia.org/w/index.php?search=" + text;
+            let iframe = document.createElement("iframe");
+            textArray.push(windows);
+            // On Progress
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+            iframe.src = windows;
+            texts.appendChild(p);
+            texts.appendChild(iframe);
+        }
+        var speaker = window.speechSynthesis;
+        function speakFunction() {
+            var toSpeak = new SpeechSynthesisUtterance(p.textContent);
+            var voices = speaker.getVoices();
+            toSpeak.voice = voices[3]; // 0 to 20
+            toSpeak.pitch = 1; // 0 to 2
+            toSpeak.rate = 1; // 0.1 to 10
+            toSpeak.volume = 1; // 0 to 1
+            toSpeak.lang = "pt-BR";
+            speaker.speak(toSpeak);
+        }
+        speakFunction();
+        p = document.createElement("p");
+        // Else Will be coming soon...
+        // else {
+        //     p = document.createElement("p");
+        //     p.classList.add("reply");
+        //     p.textContent =
+        //         "Sorry, I couldn't understand you. Please speak in English or say 'help' to know my commands. Thank you.";
+        //     texts.appendChild(p);
+        // }
+        window.scrollBy(0, 10000);
+    }
+});
+
+// When the recognition is ended, it starts again.
+recognition.addEventListener("end", () => {
+    recognition.start();
+});
+
+// Starting the recognition.
+recognition.start();
+</script>
+</html>
