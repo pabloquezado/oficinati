@@ -234,20 +234,21 @@ recognition.addEventListener("result", (e) => {
             p.forEach((para) => {
                 para.remove();
             });
-       } else if (text.includes("Pesquisar")) {
+       } else if (text.includes("Google")) {
           
             p = document.createElement("p");
             p.classList.add("reply");
-            text = text.replace("Pesquisar", "");
+            text = text.replace("Google", "");
             p.textContent =
                 "Resultado para " +
                 "'" +
                 text +
                 "'...";
+          
             let windows = "https://www.google.com/search?q=" + text;
             let iframe = document.createElement("iframe");
             textArray.push(windows);
-            // On Progress
+          
             localStorage.setItem(
                 "previousChatForAIByShu-vro",
                 JSON.stringify(textArray)
