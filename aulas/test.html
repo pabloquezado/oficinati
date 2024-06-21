@@ -234,18 +234,28 @@ recognition.addEventListener("result", (e) => {
             p.forEach((para) => {
                 para.remove();
             });
-        } else if (text.includes("Pesquisar")) {
+       } else if (text.includes("Pesquisar")) {
+          
             p = document.createElement("p");
             p.classList.add("reply");
-            p.textContent = text.replace("Pesquisar", "Pesquisando");
-            textArray.push("repl.Pesquisando" + text.replace("pesquisar", ""));
+            text = text.replace("Pesquisar", "");
+            p.textContent =
+                "Resultado para " +
+                "'" +
+                text +
+                "'...";
+            let windows = "https://www.google.com/search?q=" + text;
+            let iframe = document.createElement("iframe");
+            textArray.push(windows);
+            // On Progress
             localStorage.setItem(
                 "previousChatForAIByShu-vro",
                 JSON.stringify(textArray)
             );
-            text = text.replace(" ", "?q=");
+            iframe.src = windows;
             texts.appendChild(p);
-            window.open("https://google.com/" + text);
+            texts.appendChild(iframe);
+          
         } else if (text.includes("YouTube")) {
             p = document.createElement("p");
             p.classList.add("reply");
