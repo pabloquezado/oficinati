@@ -303,16 +303,22 @@ recognition.addEventListener("result", (e) => {
                 JSON.stringify(textArray)
             );
             texts.appendChild(p);
-        } else if (text.includes("Quero saber sobre")) {
+        } else if (text.includes("Quero saber")) {
           
             p = document.createElement("p");
             p.classList.add("reply");
-            text = text.replace("Quero saber sobre", "");
+            text = text.replace("Quero saber", "");
             p.textContent =
-                "Resultado da pesquisa para " +
+                "Resultado para " +
                 "'" +
                 text +
                 "'...";
+                       textArray.push(
+                "repl." +
+                    "Resultado para " +
+                    "'" +
+                    text +
+                    "'...");
             let windows = "https://pt.wikipedia.org/w/index.php?search=" + text;
             let iframe = document.createElement("iframe");
             textArray.push(windows);
