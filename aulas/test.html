@@ -24,7 +24,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #263238;
+    background: skyblue;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -234,29 +234,20 @@ recognition.addEventListener("result", (e) => {
             p.forEach((para) => {
                 para.remove();
             });
-       } else if (text.includes("Google")) {
-          
+        } else if (text.includes("Google")) {
             p = document.createElement("p");
             p.classList.add("reply");
-            text = text.replace("Google", "");
-            p.textContent =
-                "Resultado para " +
-                "'" +
-                text +
-                "'...";
-          
-            let windows = "https://www.google.com/search?q=" + text;
-            let iframe = document.createElement("iframe");
-            textArray.push(windows);
-          
+            textArray.push("repl.Pesquisando" + text.replace("Google", ""));
             localStorage.setItem(
                 "previousChatForAIByShu-vro",
                 JSON.stringify(textArray)
             );
-            iframe.src = windows;
+            p.textContent = text.replace("Google", "Pesquisando");
+            text = text.replace(" ", "");
             texts.appendChild(p);
-            texts.appendChild(iframe);
+            text = text.replace("Spotify", "");
           
+           window.open("https://www.google.com/search?q=" + text);
         } else if (text.includes("YouTube")) {
             p = document.createElement("p");
             p.classList.add("reply");
