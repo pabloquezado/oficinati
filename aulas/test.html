@@ -273,20 +273,7 @@ recognition.addEventListener("result", (e) => {
             texts.appendChild(p);
             text = text.replace("Spotify", "");
           
-            //window.open("https://open.spotify.com/search/" + text);
-
- let windows = "https://open.spotify.com/search/" + text;
-            let iframe = document.createElement("iframe");
-            textArray.push(windows);
-            // On Progress
-            localStorage.setItem(
-                "previousChatForAIByShu-vro",
-                JSON.stringify(textArray)
-            );
-            iframe.src = windows;
-            texts.appendChild(p);
-            texts.appendChild(iframe);
-          
+           window.open("https://open.spotify.com/search/" + text);
           
         } else if (text.includes("ajuda") || text.includes("Ajuda")) {
             p = document.createElement("p");
