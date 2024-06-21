@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -313,13 +313,6 @@ recognition.addEventListener("result", (e) => {
                 "'" +
                 text +
                 "'...";
-          
-             textArray.push(
-                "repl." +
-                    "Resultado da pesquisa para " +
-                    "'" +
-                    text +
-                    "'...");
             let windows = "https://pt.wikipedia.org/w/index.php?search=" + text;
             let iframe = document.createElement("iframe");
             textArray.push(windows);
