@@ -269,10 +269,24 @@ recognition.addEventListener("result", (e) => {
                 JSON.stringify(textArray)
             );
             p.textContent = text.replace("Spotify", "Pesquisando");
-            text = text.replace(" ", "=");
+            text = text.replace(" ", "");
             texts.appendChild(p);
             text = text.replace("Spotify", "");
-            window.open("https://open.spotify.com/search/" + text);
+          
+            //window.open("https://open.spotify.com/search/" + text);
+
+ let windows = "https://open.spotify.com/search/" + text;
+            let iframe = document.createElement("iframe");
+            textArray.push(windows);
+            // On Progress
+            localStorage.setItem(
+                "previousChatForAIByShu-vro",
+                JSON.stringify(textArray)
+            );
+            iframe.src = windows;
+            texts.appendChild(p);
+            texts.appendChild(iframe);
+          
           
         } else if (text.includes("ajuda") || text.includes("Ajuda")) {
             p = document.createElement("p");
