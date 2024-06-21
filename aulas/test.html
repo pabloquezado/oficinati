@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -303,11 +303,11 @@ recognition.addEventListener("result", (e) => {
                 JSON.stringify(textArray)
             );
             texts.appendChild(p);
-        } else if (text.includes("Quero saber sobre")) {
+        } else if (text.includes("I want to know about")) {
           
             p = document.createElement("p");
             p.classList.add("reply");
-            text = text.replace("Quero saber sobre", "");
+            text = text.replace("I want to know about", "");
             p.textContent =
                 "I found this for you and taking to you to " +
                 "'" +
