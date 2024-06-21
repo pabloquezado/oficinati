@@ -316,11 +316,10 @@ recognition.addEventListener("result", (e) => {
           
              textArray.push(
                 "repl." +
-                    "Encontrei isso para você " +
+                    "I found this for you and taking to you to " +
                     "'" +
                     text +
-                    "'..."
-            );
+                    "'...");
             let windows = "https://pt.wikipedia.org/w/index.php?search=" + text;
             let iframe = document.createElement("iframe");
             textArray.push(windows);
