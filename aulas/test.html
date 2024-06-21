@@ -245,7 +245,7 @@ recognition.addEventListener("result", (e) => {
             p.textContent = text.replace("Google", "Pesquisando");
             text = text.replace(" ", "");
             texts.appendChild(p);
-            text = text.replace("Spotify", "");
+            text = text.replace("Google", "");
           
            window.open("https://www.google.com/search?q=" + text);
         } else if (text.includes("YouTube")) {
