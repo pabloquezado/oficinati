@@ -304,6 +304,7 @@ recognition.addEventListener("result", (e) => {
             );
             texts.appendChild(p);
         } else if (text.includes("I want to know about")) {
+          
             p = document.createElement("p");
             p.classList.add("reply");
             text = text.replace("I want to know about", "");
@@ -312,13 +313,6 @@ recognition.addEventListener("result", (e) => {
                 "'" +
                 text +
                 "'...";
-
-            textArray.push(
-                "repl." +
-                    "I found this for you and taking to you to " +
-                    "'" +
-                    text +
-                    "'..."
             );
             let windows = "https://en.wikipedia.org/w/index.php?search=" + text;
             let iframe = document.createElement("iframe");
