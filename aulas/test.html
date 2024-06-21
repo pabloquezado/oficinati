@@ -313,8 +313,15 @@ recognition.addEventListener("result", (e) => {
                 "'" +
                 text +
                 "'...";
+          
+             textArray.push(
+                "repl." +
+                    "Encontrei isso para você " +
+                    "'" +
+                    text +
+                    "'..."
             );
-            let windows = "https://en.wikipedia.org/w/index.php?search=" + text;
+            let windows = "https://pt.wikipedia.org/w/index.php?search=" + text;
             let iframe = document.createElement("iframe");
             textArray.push(windows);
             // On Progress
