@@ -322,11 +322,11 @@ recognition.addEventListener("result", (e) => {
                 JSON.stringify(textArray)
             );
             texts.appendChild(p);
-        } else if (text.includes("I wanna know about")) {
+        } else if (text.includes("I want to know about")) {
           
             p = document.createElement("p");
             p.classList.add("reply");
-            text = text.replace("I wanna know about", "");
+            text = text.replace("I want to know about", "");
             p.textContent =
                 "Resultado para " +
                 "'" +
