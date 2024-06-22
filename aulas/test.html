@@ -24,7 +24,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: skyblue;
+    background: #263238;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -281,9 +281,10 @@ recognition.addEventListener("result", (e) => {
             p = document.createElement("p");
             p.classList.add("reply");
             p.innerHTML = `Certamente poderei te ajudar. Mas primeiro, é preciso que conheça meus comandos. Confira os comandos que posso realizar.
-            <ul>
+            <ul style="width: 500px;">
                 <li>Fale <b>Deletar conversa</b> to clear the screen including all the conversions.</li>
                 <li>Fale <b>Pesquisar</b> para pesquisar qualquer coisa.</li>
+                <li>Fale <b>Spotify</b> para pesquisar música</li>
                 <li>Fale <b>YouTube</b> para uma pesquisa <a href="https://www.youtube.com">YouTube</a>.</li>
                 <li>Fale <b>Website</b> para acessar um site. <strong>Nota: </strong> O site precisa ser válido.</li>
                 <li>Fale <b>Quero saber sobre</b> para pesquisar na Wikipédia.</li>
