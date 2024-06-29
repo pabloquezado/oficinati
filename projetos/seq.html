@@ -1,0 +1,638 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Drum Sequencer</title>
+	<link rel="stylesheet" href="./style.css">
+	<link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+	<div class="container">
+		<div id="p0">
+			<p class="drum-name">KICK</p>
+			<p class="drum-name">CLAP</p>
+			<p class="drum-name">HIHAT</p>
+			<p class="drum-name">RIM</p>
+		</div>
+
+		<div id="controls">
+			<div id="controls-left-side">
+				<div class="sampler" id="sampler1">Q</div>
+				<div class="sampler" id="sampler2">W</div>
+				<div class="sampler" id="sampler3">E</div>
+				<div class="sampler" id="sampler4">R</div>
+			</div>
+
+			<div id="controls-right-side">
+				<p id="bpm">130 BPM</p>
+				<input type="range" min="30" max="200" value="130" id="bpm-slider">
+	
+				<p id="clear-track">CLEAR</p>
+			</div>
+		</div>
+
+		<div class="sequencer">
+			<div class="d1">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+
+			<div class="d2">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d3">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d4" id="d-split">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d5">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d6">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d7">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d8" id="d-split">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d9">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d10">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d11">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d12" id="d-split">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d13">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d14">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d15">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+	
+			<div class="d16">
+				<div class="sample" data-sample="kick.wav"></div>
+				<div class="sample" data-sample="clap.wav"></div>
+				<div class="sample" data-sample="hihat.wav"></div>
+				<div class="sample" data-sample="rim.wav"></div>
+			</div>
+		</div>
+	</div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	user-select: none;
+}
+
+html {
+	font-family: 'Lexend Zetta', sans-serif;
+	background-color: rgb(248, 248, 248);
+}
+
+.container {
+	background-color: rgb(255, 255, 255);
+	/* box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.07); */
+	height: 370px;
+	width: 950px;
+	border-radius: 11px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 12px 20px;
+	display: flex;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.sequencer {
+	display: flex;
+	height: 270px;
+	width: 840px;
+	margin-top: 100px;
+}
+
+#p0 {
+	margin-top: 109px;
+	width: 160px;
+	padding-left: 2px;
+	padding-right: 26px;
+}
+
+.drum-name {
+	font-weight: bold;
+	font-size: 12px;
+	letter-spacing: -0.5px;
+	line-height: 58px;
+	padding: 0px 36px 0px 16px;
+	border-radius: 6px;
+	margin-bottom: 4px;
+	background-color: #fff;
+	color: rgba(0, 0, 0, 0.6);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#controls {
+	position: absolute;
+	left: 20px;
+	right: 20px;
+	top: 0px;
+	height: 120px;
+}
+
+#controls-left-side {
+	float: left;
+	height: 100%;
+}
+
+#controls-right-side {
+	float: right;
+	height: 100%;
+}
+
+.sampler {
+	display: inline;
+	padding: 30px 48px;
+	border-radius: 6px;
+	line-height: 120px;
+	text-align: center;
+	background-color: #fff;
+	color: rgba(0, 0, 0, 0.6);
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+
+.pressed {
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+	top: 2px;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+#bpm {
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.6);
+	line-height: 120px;
+	position: absolute;
+	top: 25px;
+	right: 200px;
+}
+
+#bpm-slider {
+	position: absolute;
+	top: 24px;
+	right: 150px;
+	width: 180px;
+}
+
+#bpm-slider:hover {
+	cursor: pointer;
+}
+
+#controls p {
+	display: inline;
+	font-size: 12px;
+	position: relative;
+	top: -1px;
+}
+
+#clear-track {
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.6);
+	padding: 16px 24px;
+	border-radius: 6px;
+	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	margin-left: 36px;
+	margin-right: 2px;
+	position: relative;
+	-webkit-user-select: none;
+}
+
+#clear-track:hover {
+	cursor: pointer;
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#clear-track:active {
+	top: 0px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.d1,
+.d2,
+.d3,
+.d4,
+.d5,
+.d6,
+.d7,
+.d8,
+.d9,
+.d10,
+.d11,
+.d12,
+.d13,
+.d14,
+.d15,
+.d16 {
+	background-color: rgba(0, 0, 0, 0);
+	height: 100%;
+	width: 50%;
+	margin: 5px 2px;
+	display: inline-block;
+}
+
+.sample {
+	background-color: rgba(0, 0, 0, 0.1);
+	margin: 4px 0px;
+	display: block;
+	height: 60px;
+	border-radius: 6px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+}
+
+.sample:hover {
+	cursor: pointer;
+}
+
+.row-highlight {
+	background-color: rgba(28, 29, 28, 0.2);
+}
+
+.item-selected {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+#d-split {
+	margin-right: 20px;
+}
+
+input[type=range] {
+	height: 50px;
+	-webkit-appearance: none;
+	margin: 10px 0;
+	width: 100%;
+}
+
+input[type=range]:focus {
+	outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 10px;
+	cursor: pointer;
+	box-shadow: 0px 0px 0px #000000;
+	background: #EDEDED;
+	border-radius: 5px;
+	border: 1px solid #C2C2C2;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	box-shadow: 0px 0px 0px #707070;
+	border: 1px solid #A3A3A3;
+	height: 42px;
+	width: 15px;
+	border-radius: 17px;
+	background: #FFFFFF;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -17px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+	background: #EDEDED;
+}
+
+input[type=range]::-moz-range-track {
+	width: 100%;
+	height: 7px;
+	cursor: pointer;
+	background: #EDEDED;
+	border-radius: 50px;
+	border: 1px solid #C2C2C2;
+}
+
+input[type=range]::-moz-range-thumb {
+	border: 1px solid #A3A3A3;
+	height: 42px;
+	width: 13px;
+	border-radius: 17px;
+	background: #FFFFFF;
+	cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+	width: 100%;
+	height: 10px;
+	cursor: pointer;
+	animate: 0.2s;
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+	background: #EDEDED;
+	border: 1px solid #C2C2C2;
+	border-radius: 10px;
+}
+
+input[type=range]::-ms-fill-upper {
+	background: #EDEDED;
+	border: 1px solid #C2C2C2;
+	border-radius: 10px;
+}
+
+input[type=range]::-ms-thumb {
+	margin-top: 1px;
+	border: 1px solid #A3A3A3;
+	height: 43px;
+	width: 15px;
+	border-radius: 50px;
+	background: #FFFFFF;
+	cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+	background: #EDEDED;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+	background: #EDEDED;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .parent, .parent2 {
+	margin-top: 10px;
+	display: flex;
+	flex-wrap: no-wrap;
+}
+
+.kick, .clap {
+	width: 50%;
+	height: 40px;
+	background-color: rgba(0, 0, 0, 0.1);
+	margin: 0px 2px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+	font-family: "Courier New";
+	font-size: 12px;
+	border-radius: 12px;
+	box-sizing: border-box;
+}
+
+.kick:hover, .clap:hover {
+	cursor: pointer;
+}
+
+.item-selected {
+	background-color: salmon;
+}
+
+.row {
+	background-color: rgba(0, 0, 0, 0.25);
+} */
+</style>
+</body>
+<script>
+const rows = document.querySelector(".sequencer").children;
+
+const kick = new Audio("https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/kick.mp3"),
+	clap = new Audio("https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/clap.mp3"),
+	hihat = new Audio("https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/hihat.mp3"),
+	rim = new Audio("https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/rim.mp3"),
+	Q = new Audio("https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/Q.mp3"),
+	W = new Audio("https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/W.mp3"),
+	E = new Audio("https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/E.mp3"),
+	R = new Audio("https://raw.githubusercontent.com/kucerajacob/DRUM-SEQUENCER/master/audio/R.mp3");
+
+const item = document.querySelectorAll(".sample");
+
+// Checkbox toggle functionality
+item.forEach(function (el) {
+	el.onclick = function () {
+		if (el.classList.contains("item-selected")) {
+			el.classList.remove("item-selected");
+		} else {
+			el.classList.add("item-selected");
+		}
+	}
+});
+
+// Clear button functionality
+document.getElementById("clear-track").onclick = function () {
+	[].forEach.call(item, function (el) {
+		el.classList.remove("item-selected");
+	});
+}
+
+// Sample pad key press functionality
+document.onkeydown = function (e) {
+	e = e || window.event;
+
+	switch (e.key) {
+		case "q":
+			Q.load();
+			Q.play();
+			document.getElementById("sampler1").classList.add("pressed");
+			break;
+		case "w":
+			W.load();
+			W.play();
+			document.getElementById("sampler2").classList.add("pressed");
+			break;
+		case "e":
+			E.load();
+			E.play();
+			document.getElementById("sampler3").classList.add("pressed");
+			break;
+		case "r":
+			R.load();
+			R.play();
+			document.getElementById("sampler4").classList.add("pressed");
+			break;	
+	}
+}
+
+document.onkeyup = function (e) {
+	e = e || window.event;
+
+	switch (e.key) {
+		case "q":
+			// Q.pause();
+			// Q.currentTime = 0;
+			document.getElementById("sampler1").classList.remove("pressed");
+			break;
+		case "w":
+			// W.pause();
+			// W.currentTime = 0;
+			document.getElementById("sampler2").classList.remove("pressed");
+			break;
+		case "e":
+			// E.pause();
+			// E.currentTime = 0;
+			document.getElementById("sampler3").classList.remove("pressed");
+			break;
+		case "r":
+			// R.pause();
+			// R.currentTime = 0;
+			document.getElementById("sampler4").classList.remove("pressed");
+			break;	
+	}
+}
+
+// BPM slider
+const bpmSlider = document.getElementById("bpm-slider");
+const bpmText = document.getElementById("bpm");
+var BPM = bpmSlider.value;
+
+bpmText.innerHTML = bpmSlider.value + " BPM";
+
+bpmSlider.oninput = function () {
+	bpmText.innerHTML = this.value + " BPM";
+	BPM = parseInt(((60 / bpmSlider.value) * 1000) / 4);
+}
+
+let i = -1;
+rowLoop = () => {
+	setTimeout(function () {
+		i++;
+
+		if (i === rows.length) {
+			i = 0;
+			document.querySelector(".d16").childNodes[1].classList.remove("row-highlight");
+			document.querySelector(".d16").childNodes[3].classList.remove("row-highlight");
+			document.querySelector(".d16").childNodes[5].classList.remove("row-highlight");
+			document.querySelector(".d16").childNodes[7].classList.remove("row-highlight");
+		}
+
+		document.querySelector(".d" + (i + 1)).childNodes[1].classList.add("row-highlight");
+		document.querySelector(".d" + (i + 1)).childNodes[3].classList.add("row-highlight");
+		document.querySelector(".d" + (i + 1)).childNodes[5].classList.add("row-highlight");
+		document.querySelector(".d" + (i + 1)).childNodes[7].classList.add("row-highlight");
+
+		if (i > 0) {
+			document.querySelector(".d" + i).childNodes[1].classList.remove("row-highlight");
+			document.querySelector(".d" + i).childNodes[3].classList.remove("row-highlight");
+			document.querySelector(".d" + i).childNodes[5].classList.remove("row-highlight");
+			document.querySelector(".d" + i).childNodes[7].classList.remove("row-highlight");
+		}
+
+		document.querySelectorAll(".d" + (i + 1)).forEach(function (bruh) {
+			if (bruh.childNodes[1].classList.contains("row-highlight") && bruh.childNodes[1].classList.contains("item-selected")) {
+				kick.load();
+				kick.play();
+			}
+
+			if (bruh.childNodes[3].classList.contains("row-highlight") && bruh.childNodes[3].classList.contains("item-selected")) {
+				clap.load();
+				clap.play();
+			}
+
+			if (bruh.childNodes[5].classList.contains("row-highlight") && bruh.childNodes[5].classList.contains("item-selected")) {
+				hihat.load();
+				hihat.play();
+			}
+
+			if (bruh.childNodes[7].classList.contains("row-highlight") && bruh.childNodes[7].classList.contains("item-selected")) {
+				rim.load();
+				rim.play();
+			}
+		});
+
+		rowLoop();
+	}, BPM);
+}
+
+// Call rowLoop() function
+rowLoop();
+</script>
+</html>
