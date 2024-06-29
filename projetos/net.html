@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Quem está assistindo?</title>
+</head>
+<body>
+    <div class="logo"></div>
+
+    <div class="container">
+    <h1 id="qea">Quem está assistindo?</h1>
+</div>
+
+<div class="mobilediv"></div>
+
+    <div class="wrapper">
+        <div class="el" id="one">
+        <p id="mobile">Usuário 1</p>
+        </div>
+        <div class="el" id="nd">
+            <p id="mobile">Usuário 2</p>
+        </div>
+        <div class="el" id="rd">
+            <p id="mobile">Infantil</p>
+        </div>
+        <div class="el" id="th">
+            <p id="mobile">Adicionar perfil</p>
+        </div>
+    </div>
+    
+<div class="gerenciar">
+<p id="botão">Gerenciar perfis</p>
+</div>
+    <style>
+        @media only screen and (max-width: 600px){
+            .container{
+                margin-top: 70px;
+            }
+            .logo{
+left:0;
+right:0;
+margin-top: 25px;
+margin-left:auto;
+margin-right:auto;
+text-align: center;
+animation: fade-in 1800ms forwards;
+            }
+.wrapper{
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 150px;
+}
+#mobile{
+    font-size: 15px;
+    top: 100px;
+}
+body{
+    color: white;
+}
+h1{
+    position: absolute;
+    bottom: 0;
+left:0;
+right:0;
+margin-left:auto;
+margin-right:auto;
+}
+#qea{
+    margin-bottom: 50px;
+    font-size: 25px;
+}
+#one{
+    width: 100px;
+    height: 100px;
+}
+#nd{
+    width: 100px;
+    height: 100px;
+}
+#rd{
+    width: 100px;
+    height: 100px;
+}
+#th{
+    width: 100px;
+    height: 100px;
+}
+.gerenciar{
+    bottom: 350px;
+}
+        }
+        .gerenciar{
+            position: relative;
+            margin-bottom: 100px;
+            text-transform: uppercase;
+            cursor: pointer;
+            animation: fade-in 1800ms forwards;
+        }
+#botão{
+    width: max-content;
+    padding: 10px;
+    border: solid gray 1px;
+    font-size: 20px;
+    transition: all 300ms ease;
+    /*se eu não colocar o transition aqui tbm, o hover para repetinamente.*/
+}
+#botão:hover{
+    border-color: white;
+    transition: all 300ms ease;
+}
+        p{
+            position: absolute;
+            top: 250px;           
+left:0;
+right:0;
+margin-left:auto;
+margin-right:auto;
+text-align: center;
+
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+font-size: 25px;  
+font-weight: 400px;   
+color: gray;   
+}
+        p:hover{
+            color: white;
+            transition: all 300ms ease;
+        }
+        body {
+    user-select: none;
+	box-sizing: border-box;
+    background: #141414;
+    margin: 0;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    overflow-x: hidden;    
+}
+        h1{
+            text-align: center;
+        color: white;
+        font-size: 50px;
+        margin-top: 100px;
+	animation: fade-in 1800ms forwards;
+    opacity: 0;
+    }
+    @keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: scale(1.2);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+#one{
+    background: url('https://i.pinimg.com/736x/4c/92/11/4c9211f3ff33b6e85d2ed5d108a57a71.jpg');
+background-size: 100%;
+background-repeat: no-repeat;
+}
+#nd{
+    background: url('https://cdn-icons-png.flaticon.com/512/5624/5624232.png');
+    background-color: coral;
+    background-size: calc(100% + 50px);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#rd{
+    background: url('https://occ-0-1356-559.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcLIHTkNuA8jSxuJlbbZppCm90vEXAZ7nMv9P3Uqv0E-ufs9-AbpdXjBF3dF_imIb966YrjBqk-iJc25JoWLtqtqR5B3.png?r=1b8');
+    background-size: 100%;
+background-repeat: no-repeat;
+}
+#th{
+    background: url('https://assets.website-files.com/60d88f11017713440c0f1a9d/60d8c137d33b3921bbf9ae29_add-icon.png');
+    background-size: 100%;
+background-repeat: no-repeat;
+}
+.logo{
+	width: 110px; height:30px;
+	background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2000px-Netflix_2015_logo.svg.png');
+	background-size: cover;
+}
+@media (min-width: 1200px){
+    .logo{
+        margin: 15px 60px;
+        animation: fade-in 2800ms forwards;
+    }
+    .wrapper{
+    justify-content: center;
+	min-height: 100vh;
+    }
+    .gerenciar{
+        bottom: 350px;
+    }
+}
+    .container{
+   position: absolute;
+top: 100px;
+left:0;
+right:0;
+margin-left:auto;
+margin-right:auto;
+    }
+.wrapper {
+    margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 2rem;
+}
+
+.el {
+  --delay: calc(var(--i, 1) * 400ms);
+	animation: fadeIn 1200ms var(--delay) forwards;
+	width: 15rem;
+	height: 15rem;
+	background: #f542d7;
+	margin: 20px;
+	opacity: 0;
+	transform: scale(0);
+    cursor: pointer;
+}
+.el:hover{
+    border: 3px solid white;
+    transition: all 300ms ease;
+}
+.el:nth-child(2) {
+  --i: 2;
+}
+
+.el:nth-child(3) {
+  --i: 3;
+}
+
+@keyframes fadeIn {
+	100% { 
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+    </style>
+</body>
+</html>
