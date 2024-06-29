@@ -236,6 +236,15 @@ background-repeat: no-repeat;  border: solid black 3px;   grid-template-columns:
 
          <button id="buttondesktop" class="scrollToTopBtn" style="background: url('../assets/subir.png'); image-rendering: pixelated; width: 100px; height:100px; background-size: 100px 100px; background-repeat: no-repeat;"></button>
          <style>
+@media only screen and (max-width: 600px){
+      #buttondesktop{
+  width: 50px;
+  height: 50px;
+  background: url('../assets/subir.png');
+  background-size: 50px 50px;
+  image-rendering: pixelated;
+ }
+}
           .scrollToTopBtn {
   background-color: #850f11;
   border: none;
@@ -774,7 +783,7 @@ a higiene de nossos animais.&lt;/p&gt;
 <p>Perfeito! Já temos uma estrutura básica. Agora, vamos adicionar o atributo alt na nossa img caso a imagem não carregue em dispositivos.</p>
 
 <pre>
-<code class="language-html">&lt;img src = "../assets/pets.png" alt="animais de estimação"&gt;</code></pre>
+<code class="language-html">&lt;img src = "pets.png" alt="animais de estimação"&gt;</code></pre>
 <br>
 <p style="font-size: 15px;">Agora, caso a imagem não carregue, vai aparecer o texto "animais de estimação."</p>
 <br>
@@ -873,7 +882,7 @@ a higiene de nossos animais.&lt;/p&gt;
         
         &lt;h1&gt;Tudo sobre pets&lt;/h1&gt;
 
-        &lt;img src="../assets/pets.png" alt="animais de estimação"&gt;
+        &lt;img src="pets.png" alt="animais de estimação"&gt;
 
         &lt;h2&gt;Alimentação&lt;/h2&gt;
         &lt;p&gt;É muito importante cuidarmos da alimentação de nossos animais de estimação.&lt;/&gt;
@@ -955,7 +964,7 @@ a higiene de nossos animais.&lt;/p&gt;
     
     &lt;h1&gt;Tudo sobre pets&lt;/h1&gt;
 
-    &lt;img src="../assets/pets.png" alt="animais de estimação"&gt;
+    &lt;img src="pets.png" alt="animais de estimação"&gt;
 
     &lt;h2&gt;Alimentação&lt;/h2&gt;
     &lt;p&gt;É muito importante cuidarmos da alimentação de nossos animais de estimação.&lt;/&gt;
@@ -1040,13 +1049,7 @@ a higiene de nossos animais.&lt;/p&gt;
           .imgmobi{
             width: 5px;
           }
-		#buttondesktop{
-  width: 50px;
-  height: 50px;
-  background: url('../assets/subir.png');
-  background-size: 50px 50px;
-  image-rendering: pixelated;
-}
+      }
         }
       .mobile{
         width: 335px;
