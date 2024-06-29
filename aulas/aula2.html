@@ -291,14 +291,422 @@ background-repeat: no-repeat;  border: solid black 3px;   grid-template-columns:
 &lt;h5&gt; Header &lt;/h5&gt;
 &lt;h6&gt; Header &lt;/h6&gt;
 </code></pre>
-
-
 <br><br>
 <p>Resultado</p>
 
 <embed type="text/html" src="exemplos/exemplo4.html" width="100%" height="200"><br><br>
-  <p style="font-size: 15px;">Podemos usar o &lt;h1&gt; sempre como título e os demais como subtítulos
-  <br><br>
+<p style="font-size: 15px;">Podemos usar o &lt;h1&gt; sempre como título e os demais como subtítulos
+<br><br>
+  
+  <div class="app">
+    <header>
+        <nav class="top-app-bar">
+            <button class="go-back" title="home" data-target="home">
+                <svg fill="currentColor" class="arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
+                </svg>
+            </button>
+            <span class="title" style="content: 'home' !important;">HTML</span>
+            <button class="topNav--btn close--button" style="visibility: hidden;">
+                <span>&#128473;</span>
+            </button>
+        </nav>
+    </header>
+    <main class="screen-content-area">
+        <div class="screen" id="home" active>
+            <article class="inner__content">
+                <section class="article-body">
+                    <h3>TAGS HTML </h3>
+                    <p>
+                       Informam ao navegador a estrutura e os elementos da página.<br><br>
+                    
+                       Podem receber um ou mais atributos.
+
+                    </p>
+                    <h3>Atributos</h3>
+                    <p>
+                    Utilizamos atributos para personalizar as tags, modificando sua funcionalidade.
+                    </p>
+                </section>
+            </article>
+        </div>
+        <div class="screen" id="first">
+            <article class="inner__content">
+                <h3>Atributos</h3><br>
+        
+                  <code class="language-html">&lt;p class="..."&gt;</code><br><br>
+                  <p>Usamos para atribuir uma classe ao elemento.</p>
+                  <code class="language-html">&lt;p id="..."&gt;</code><br><br>
+                  <p>Usamos para atribuir uma identidade a um único elemento.</p>
+            
+                  <code class="language-html">&lt;p class="a" id="z"&gt;</code><br><br>
+                  <p>Um elemento pode receber mais de um atributo.</p>
+
+                </article>
+        </div>
+        <div class="screen" id="second">
+            <article class="inner__content">
+                <h3>Tags Estruturais</h3><br>
+                <code class="language-html">&lt;!DOCTYPE html&gt;</code><br>
+                <code class="language-html">&lt;html&gt;</code><br>
+                <code class="language-html">&lt;head&gt;</code><br>
+                <p class="explanation">Não possui valor visível, mas é onde colocamos informações úteis sobre a página</p>
+                <code class="language-html">&lt;/head&gt;</code><br><br>
+                <code class="language-html">&lt;body&gt;</code><br>
+                <p class="explanation">É aqui onde trabalhamos com os elementos visuais (texto, imagens, etc.)</p>
+                <code class="language-html">&lt;/body&gt;</code><br>
+            </article>
+        </div>
+        <div class="screen" id="third">
+            <article class="inner__content">
+                <h3>Comentários</h3><br>
+                <p class="explanation">Para facilitar nosso desenvolvimento, muitas vezes usamos comentários para organizar e/ou explicar o código. </p>
+            
+                <code class="language-html">&lt;!-- Meu comentário em HTML --&gt;</code><br>
+                <code class="language-html">&lt;p&gt; Olá mundo! &lt;/p&gt;</code><br>
+<br>
+                <p style="margin: auto; width: 270px; background: white; padding: 20px;border: dashed black 3px;">Somente quem estiver escrevendo o código pode ver o comentário.</p>
+
+              </article>
+
+        
+        </div>
+        <div class="screen" id="fourth">
+            <article class="inner__content">
+                <h3>Formatação de texto</h3><br>
+                <p>Podemos formatar nosso texto e deixá-lo mais interessante com formatações.</p>
+
+                <code class="language-html">&lt;b&gt; Realce &lt;/b&gt;</code><br>
+                <code class="language-html">&lt;i&gt; Itálico &lt;/i&gt;</code><br>
+                <code class="language-html">&lt;u&gt; Sublinhado &lt;/u&gt;</code><br><br>
+
+                <div style="margin: auto; width: 270px; background: white; padding: 20px;border: dashed black 3px;">
+                <br>
+                <p><b>Realce</b></p>
+                <p><i>Itálico</i></p>
+                <p><u>Sublinhado</u></p>
+            </div>
+<br><br>
+<p>Confira a lista das tags de formatações</p>
+            <img src="https://www.web4college.com/html/socialImages/html-text-formatting.png" width="350px;" style="padding: 15px;"><br>
+           
+            <h3>Outras TAGS Html</h3><br>
+           
+            <p>Com a tag UL e os itens LI, podemos destacar uma lista <br>
+              de itens:</p>
+
+              <code class="language-html">&lt;ul&gt;</code><br>
+              <code class="language-html">&lt;li&gt; Maçã &lt;li&gt;</code><br>
+               <code class="language-html">&lt;li&gt; Laranja &lt;li&gt;</code><br>
+               <code class="language-html">&lt;li&gt; Limão &lt;li&gt;</code><br>
+               <code class="language-html">&lt;/ul&gt;</code><br><br>
+               <img src="list.png" style="image-rendering: pixelated;"><br>
+<br>
+               <h3>Link de Ligação</h3><br>
+
+               <p style="padding: 15px;">A tag de link HTML é responsável por fazer a ligação entre um documento e outro.</p>
+               
+               <code class="language-html">&lt;a href="endereço"&gt;Clique aqui&lt;/a&gt;</code><br>
+               <p></p><br>
+               <p>Exemplo:</p><br>
+               <code class="language-html">&lt;p&gt;Para acessar o google, &lt;a href="https://www.google.com"&gt;Clique aqui.&lt;/a&gt;&lt;/p&gt;</code><br>
+<br>
+               <p>Para acessar o Google, <a href="https://www.google.com">clique aqui.</a></p>
+
+              </article>
+        </div>
+    </main>
+    <footer>
+        <nav class="bottom-app-bar">
+            <button class="navButton" data-target="first">
+                <span class="icon">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z" />
+                    </svg>
+                </span>
+            </button>
+            <button class="navButton" data-target="second">
+                <span class="icon">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306" />
+                    </svg>
+                </span>
+            </button>
+            <button class="navButton" data-target="third">
+                <span class="icon">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M7.918 8.414h-.879V7.342h.838c.78 0 1.348-.522 1.342-1.237 0-.709-.563-1.195-1.348-1.195-.79 0-1.312.498-1.348 1.055H5.275c.036-1.137.95-2.115 2.625-2.121 1.594-.012 2.608.885 2.637 2.062.023 1.137-.885 1.776-1.482 1.875v.07c.703.07 1.71.64 1.734 1.917.024 1.459-1.277 2.396-2.93 2.396-1.705 0-2.707-.967-2.754-2.144H6.33c.059.597.68 1.06 1.541 1.066.973.006 1.6-.563 1.588-1.354-.006-.779-.621-1.318-1.541-1.318" />
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8" />
+                    </svg>
+                </span>
+            </button>
+            <button class="navButton" data-target="fourth">
+                <span class="icon">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M7.519 5.057q.33-.527.657-1.055h1.933v5.332h1.008v1.107H10.11V12H8.85v-1.559H4.978V9.322c.77-1.427 1.656-2.847 2.542-4.265ZM6.225 9.281v.053H8.85V5.063h-.065c-.867 1.33-1.787 2.806-2.56 4.218" />
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8" />
+                    </svg>
+                </span>
+            </button>
+        </nav>
+    </footer>
+</div>
+
+
+<style>
+  .explanation{
+    font-size: 13px;
+  }
+  :root {
+    --bg-primary: hsl(183 6% 96%);
+    --accent: hsl(197, 96%, 49%);
+    --border: hsl(197, 7%, 37%);
+}
+.app {
+    --header: 56px;
+    --footer: 64px;
+    display: grid;
+    margin: 2rem;
+    grid: "header" var(--header) "main" 1fr "footer" var(--footer);
+    width: max(340px, 46vmin);
+    min-width: 320px;
+    aspect-ratio: 1 / 1.72;
+    overflow: hidden;
+    box-shadow: 0 0 2px -1px #010, 0 0 1px 2px #7a7f8340,
+        7px 7px 2px -1px #505255ef;
+        width: calc(100% - 60px);
+        height: 500px;
+}
+
+.screen:not([active]) {
+    display: none;
+}
+
+.app:not(:has([active]:not(#home))) .go-back {
+    visibility: hidden;
+}
+
+header {
+    grid-area: header;
+    padding: 0.25rem;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid #7a7f83;
+}
+
+.top-app-bar {
+    display: grid;
+    grid-auto-flow: column;
+    block-size: 100%;
+    grid-auto-columns: 2.75rem 1fr 2.75rem;
+}
+
+.go-back {
+    border: 0;
+    background: #0000;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    border-radius: 1px;
+}
+
+.arrow-left {
+    width: 1.625rem;
+    height: 1.625rem;
+}
+
+.go-back:where(:hover, :focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    background: #fff7;
+}
+
+.go-back:active {
+    scale: 0.93;
+}
+
+.title {
+    place-self: center;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    user-select: none;
+    color: #666;
+}
+
+main {
+    grid-area: main;
+    overflow-y: auto;
+    position: relative;
+    scrollbar-width: none;
+}
+
+main::-webkit-scrollbar {
+    width: 0;
+}
+
+.screen {
+    display: grid;
+    justify-content: center;
+    min-block-size: 100%;
+    background-color: var(--bg);
+    padding: 0.5rem;
+}
+
+.inner__content > * > * {
+    margin-bottom: 1.5rem;
+}
+
+/*
+h2 {
+    font-size: clamp(1.5rem, 3.3vmin, 3.3cqi);
+    text-align: center;
+    max-width: 15ch;
+    line-height: 1.03;
+    text-wrap: balance;
+    margin-inline: auto;
+    margin-block: 1.5rem 3rem;
+}
+*/
+
+h3 {
+    font-size: 17px;
+    margin-block-end: 1rem;
+    color: white;
+    background: coral;
+    width: max-content;
+    margin: auto;
+    padding: 3px;
+}
+
+#home {
+    --bg: hsl(36, 80%, 85%);
+}
+.screen:nth-child(2) {
+    --bg: hsl(136, 80%, 85%);
+}
+.screen:nth-child(3) {
+    --bg: hsl(216, 79%, 85%);
+}
+.screen:nth-child(4) {
+    --bg: hsl(266, 80%, 85%);
+}
+.screen:nth-child(5) {
+    --bg: hsl(0, 79%, 85%);
+}
+
+footer {
+    grid-area: footer;
+    padding: 0.5rem;
+    background-color: var(--bg-primary);
+    border-top: 1px solid #7a7f83;
+}
+
+.bottom-app-bar {
+    display: grid;
+    grid-auto-flow: column;
+    block-size: 100%;
+    gap: 0.5rem;
+}
+
+.navButton {
+    border: 2px solid #7a7f83;
+    background-color: var(--bg-primary);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.navButton::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-block-end: 3px solid var(--accent);
+    margin-block-end: -8px;
+    opacity: 0;
+}
+
+.icon > svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.navButton[active] {
+    background-color: #fff;
+}
+
+.navButton[active] .icon {
+    color: var(--accent);
+}
+
+.navButton[active]::before {
+    opacity: 1;
+}
+
+.navButton:active:not([active]) {
+    scale: 0.93;
+}
+
+.navButton:where(:hover, :focus-visible):not([active]) {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    background-color: #fff7;
+}
+</style>
+
+<script>
+  const App = {
+    navigation: document.querySelector("footer > .bottom-app-bar"),
+    buttons: [...document.querySelectorAll(".navButton")],
+    screens: [...document.querySelectorAll(".screen")],
+    goHomeButton: document.querySelector(".go-back"),
+    /*title: document.querySelector(".title"),*/
+
+    handleNavigationClick(e) {
+        const targetButton = e.target.closest("button");
+        const targetID =
+            targetButton && targetButton.getAttribute("data-target");
+        const targetScreen = targetID && document.getElementById(targetID);
+
+        if (targetButton && targetScreen) {
+            App.activateButton(targetButton);
+            App.activateScreen(targetID);
+        } else {
+            console.log("Target button or screen not found.");
+        }
+    },
+
+    activateButton(targetButton) {
+        App.buttons.forEach((button) => button.removeAttribute("active"));
+        targetButton && targetButton.setAttribute("active", "");
+    },
+
+    activateScreen(targetID) {
+        App.screens.forEach((screen) => {
+            screen.id === targetID
+                ? screen.setAttribute("active", "")
+                : screen.removeAttribute("active");
+        });
+        App.updateTitle(targetID);
+    },
+
+    updateTitle(newTitle) {
+        App.title.textContent = newTitle;
+    },
+
+    goHome() {
+        App.activateScreen("home");
+        App.activateButton(null);
+    },
+
+    init() {
+        App.navigation.addEventListener("click", App.handleNavigationClick);
+        App.goHomeButton.addEventListener("click", App.goHome);
+        App.updateTitle("home");
+    }
+};
+App.init();
+</script>
+ 
 <img src="https://art.pixilart.com/c969d9c12e1cb2c.gif" style="width: 50px; float: left;">
 <p style="border: solid black 3px; background: skyblue; color: white;">Certo, mas eu gostaria de alterar esse fundo branco. Como eu faço?</p>
 <br>
