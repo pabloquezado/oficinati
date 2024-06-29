@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle com Slide</title>
+</head>
+<body>
+    <label>
+        <input type="range" min="0" max="100" value="0" oninput="ani.style.setProperty('--animdel', `${0 - this.value}s`)" />
+      </label>
+      
+      <div class="circle a-slide" id="ani" data-animation>ROTATE</div>
+      <style>
+        body {
+  font-family: ui-sans-serif, sysetm-ui, sans-serif;
+  padding: 1rem 10rem;
+}
+
+.circle {
+  --bgc: cornflowerblue;
+  --w: 150px;
+  align-items: center;
+  background-color: var(--bgc);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  height: var(--w);
+  justify-content: center;
+  margin: 0 auto 1rem;
+  width: var(--w);
+}
+.a-slide {
+  --animdel: 50s;
+  /*   --animdur: 1000s; */
+  /*   --animn: slide; */
+}
+[data-animation] {
+  /*   transition: all 50ms ease-in-out; */
+  /*   animation: var(--animn, none) var(--animdur, 0s) var(--animtf, linear) var(--animdel, 0s) var(--animic, infinite) var(--animdir, alternate) var(--animfm, none) var(--animps, running); */
+  /*   animation: slide 100s linear var(--animdel, 0s) infinite alternate none paused; */
+
+  animation-name: slide;
+  animation-duration: 100s;
+  animation-timing-function: linear;
+  animation-delay: var(--animdel, 0s);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-play-state: paused;
+}
+[type="range"] {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+/* KEYFRAMES */
+@keyframes slide {
+  0% {
+    /*     margin-left: 0; */
+  }
+  100% {
+    width: calc(var(--w) * 2);
+    height: calc(var(--w) * 2);
+
+    background-color: green;
+  }
+}
+
+
+      </style>
+</body>
+</html>
