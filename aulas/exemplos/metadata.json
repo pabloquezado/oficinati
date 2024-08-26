@@ -1,0 +1,1 @@
+{"tfjsVersion":"1.3.1","tmVersion":"0.8.6","packageVersion":"0.8.6","packageName":"@teachablemachine/pose","timeStamp":"2024-08-26T01:37:53.378Z","userMetadata":{},"modelName":"Projeto LIBRAS","labels":["Neutro","A","S","Vaca","Cachorro","B"],"modelSettings":{"posenet":{"architecture":"MobileNetV1","outputStride":16,"inputResolution":257,"multiplier":0.75}}}
