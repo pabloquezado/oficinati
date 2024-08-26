@@ -1,5 +1,5 @@
 <div>Projeto LIBRAS</div>
-<button type="button" onclick="init()">Iniciar</button>
+<button type="button" onclick="init()">Start</button>
 <div><canvas id="canvas"></canvas></div>
 <div id="label-container"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -74,44 +74,4 @@
             }
         }
     }
-
-if(prediction[i].className="Neutro" && prediction[i].probability>0.8{
-  sleep(delay);
-  showData();
-  console.log(prediction[i].className + ": " + prediction[i].probability.toFixed(4));
-}
-  if(prediction[i].className="A" && prediction[i].probability>0.8{
-  sleep(delay);
-  showData();
-  console.log(prediction[i].className + ": " + prediction[i].probability.toFixed(4));
-}
-  if(prediction[i].className="S" && prediction[i].probability>0.8{
-  sleep(delay);
-  showData();
-  console.log(prediction[i].className + ": " + prediction[i].probability.toFixed(4));
-}
-  if(prediction[i].className="B" && prediction[i].probability>0.8{
-  sleep(delay);
-  showData();
-  console.log(prediction[i].className + ": " + prediction[i].probability.toFixed(4));
-}
-  if(prediction[i].className="Vaca" && prediction[i].probability>0.8{
-  sleep(delay);
-  showData();
-  console.log(prediction[i].className + ": " + prediction[i].probability.toFixed(4));
-}
-  if(prediction[i].className="Cachorro" && prediction[i].probability>0.8{
-  sleep(delay);
-  showData();
-  console.log(prediction[i].className + ": " + prediction[i].probability.toFixed(4));
-}
-
-  function sleep(milliseconds){
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++){
-      if((new Date().getTime() = start) > milliseconds){
-        break;
-      }
-    }
-  }
 </script>
